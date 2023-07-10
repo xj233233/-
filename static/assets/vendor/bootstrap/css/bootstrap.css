@@ -473,8 +473,8 @@ mark,
 }
 
 .img-fluid {
-  max-width: 30%;
-  height: 30px;
+  max-width: 100%;
+  height: auto;
 }
 
 .img-thumbnail {

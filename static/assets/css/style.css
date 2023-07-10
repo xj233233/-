@@ -141,14 +141,14 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 
 .daohang .dh{
     float: left;
-    margin-left: 36px;
-    font-size: 15px;
+    margin-left: 0px;
+    font-size: 6px;
 }
 
 .daohang{
     float: right;
-    margin-top: 17px;
-    margin-right: 30px;
+    margin-top: 0px;
+    margin-right: 0px;
 }
 
 .daohang .dh p{
@@ -217,7 +217,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 .nav-menu .drop-down > a:after {
   content: "\ea99";
   font-family: IcoFont;
-  padding-left: 5px;
+  padding-left: 0px;
 }
 
 .nav-menu .drop-down .drop-down ul {
@@ -231,7 +231,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 }
 
 .nav-menu .drop-down .drop-down > a {
-  padding-right: 35px;
+  padding-right: 0px;
 }
 
 .nav-menu .drop-down .drop-down > a:after {
@@ -259,10 +259,10 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   top: 0;
   bottom: 0;
   z-index: 9999;
-  overflow-y: auto;
+  overflow-y: hidden;
   left: -260px;
   width: 260px;
-  padding-top: 18px;
+  padding-top: 0px;
   background: #1f3548;
   transition: 0.4s;
 }
@@ -575,7 +575,7 @@ section {
   align-items: center;
   justify-content: center;
   width: 72px;
-  height: 72px;
+  height: 30px;
   background: #f1f7fb;
   border-radius: 6px;
   transition: 0.5s;
@@ -623,7 +623,7 @@ section {
 
 .about .play-btn {
   width: 94px;
-  height: 94px;
+  height: 30px;
   background: radial-gradient(#428bca 50%, rgba(66, 139, 202, 0.4) 52%);
   border-radius: 50%;
   display: block;
@@ -979,7 +979,7 @@ section {
 --------------------------------------------------------------*/
 .team {
   background: #fff;
-  padding: 60px 0 30px 0;
+  padding: 30px 0 30px 0;
 }
 
 .team .member {
@@ -1062,7 +1062,7 @@ section {
 
 @media (max-width: 992px) {
   .team .member {
-    margin-bottom: 100px;
+    margin-bottom: 10px;
   }
 }
 
