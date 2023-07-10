@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import pymysql
+from pyecharts.charts import Map
 
 app = Flask(__name__)
 
@@ -63,8 +64,8 @@ def tushu():
 
 @app.route('/score')
 def score():
-    score = []  # 评分
-    num = []  # 每个评分所统计出的电影数量
+    score = []
+    num = []
     sql = "select * from book_score_num"
     result = query(sql)
     for item in result:
@@ -76,8 +77,8 @@ def score():
 
 @app.route('/country')
 def country():
-    country = []  # 评分
-    num = []  # 每个评分所统计出的电影数量
+    country = []
+    num = []
     sql = "select * from book_country_num"
     result = query(sql)
     for item in result:
@@ -141,10 +142,36 @@ def word():
 def team():
     return render_template("team.html")
 
+def render_country():
+    # 基础数据
+    value = [131, 1, 3, 1, 1, 1, 2, 3, 3, 5, 1, 8, 1, 1, 15, 1, 5, 1, 1, 1, 1, 2, 33, 1, 1, 23, 1, 1]
+    attr = ["China", "Israel", "Russia", "Canada", "South Africa", "India", "Ancient Greece", "Colombia", "Austria",
+            "Germany", "Germany", "Italy", "Norway", "Japan", "Japan", "France", "Qing", "Australia", "Sweden",
+            "White Russia", "United States", "Soviet", "Britain", "Portugal", "Argentina"]
+
+    data = []
+    for index in range(len(attr)):
+        city_ionfo = [attr[index], value[index]]
+        data.append(city_ionfo)
+
+    c = (
+        Map()
+        .add("世界地图", data, "world")
+        .set_series_opts(label_opts=opts.LabelOpts(is_show=False))
+        .set_global_opts(
+            title_opts=opts.TitleOpts(title="作家对应国家地图示例"),
+            visualmap_opts=opts.VisualMapOpts(max_=200),
+
+        )
+        .render("templates/country_map.html")
+    )
+    return render_template("country_map.html",country_list =data)
+
 
 if __name__ == '__main__':
     from gevent import pywsgi
-
+    #需要重新绘制时取消下面的注释，运行app(注意保留原map的"visualMap")
+    # render_country()
     server = pywsgi.WSGIServer(('0.0.0.0', 5000), app)
 
     server.serve_forever()
