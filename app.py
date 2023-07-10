@@ -11,8 +11,8 @@ def get_conn():
         host='127.0.0.1',
         port=3306,
         user='root',
-        passwd='123456',
-        db='python',
+        passwd='yyp20020923',
+        db='doubanbook',
         charset='utf8'
     )
     #创建游标
@@ -51,14 +51,14 @@ def home():
 
 
 @app.route('/book')
-def book():
+def tushu():
     datalist = []
     sql = "select * from books"
     result = query(sql)
     for item in result:
         datalist.append(item)
     print(datalist)
-    return render_template("book.html", books=datalist)
+    return render_template("book.html", book=datalist)
 
 
 @app.route('/score')
