@@ -1,9 +1,43 @@
-from flask import Flask,render_template
+from flask import Flask, render_template
 import pymysql
-
 
 app = Flask(__name__)
 
+def get_conn():
+    """
+    :return 连接对象，游标对象
+    """
+    conn = pymysql.connect(
+        host='127.0.0.1',
+        port=3306,
+        user='root',
+        passwd='123456',
+        db='python',
+        charset='utf8'
+    )
+    #创建游标
+    cursor = conn.cursor()
+    return conn,cursor
+
+def close_conn(conn,cursor):
+    if cursor:
+        cursor.close()
+    if conn:
+        conn.close()
+
+
+def query(sql,*args):
+    """
+    通用查询
+    :param sql
+    :param args sql里的占位符对应的值
+    :return 返回查询的结果， ((),()...)
+    """
+    conn,cursor = get_conn()
+    cursor.execute(sql,args)
+    res = cursor.fetchall()
+    close_conn(conn,cursor)
+    return res
 
 @app.route('/')
 def index():
@@ -12,168 +46,96 @@ def index():
 
 @app.route('/index')
 def home():
-    #return render_template("index.html")
+    # return render_template("index.html")
     return index()
 
 
-@app.route('/movie')
-def movie():
-    datalist  = []
-    con = pymysql.connect(
-        host='192.168.43.100',
-        port=3306,
-        user='root',
-        passwd='Root@123',
-        db='doubanbook',
-        charset='utf8'
-    )
-    cur = con.cursor()
+@app.route('/book')
+def book():
+    datalist = []
     sql = "select * from books"
-    data = cur.execute(sql)
-    result=cur.fetchall()
+    result = query(sql)
     for item in result:
         datalist.append(item)
-    cur.close()
-    cur.close()
     print(datalist)
-    return render_template("movie.html", movies=datalist)
-
+    return render_template("book.html", books=datalist)
 
 
 @app.route('/score')
 def score():
-    score = []  #评分
-    num = []    #每个评分所统计出的电影数量
-    conn = pymysql.Connect(
-        host='192.168.43.100',
-        port=3306,
-        user='root',
-        passwd='Root@123',
-        db='doubanbook',
-        charset='utf8'
-    )
-    cur = conn.cursor()
+    score = []  # 评分
+    num = []  # 每个评分所统计出的电影数量
     sql = "select * from book_score_num"
-    data = cur.execute(sql)
-    result = cur.fetchall()
+    result = query(sql)
     for item in result:
         score.append(str(item[0]))
         num.append(item[1])
 
-    cur.close()
-    conn.close()
-    return render_template("score.html",score= score,num=num)
+    return render_template("score.html", score=score, num=num)
+
 
 @app.route('/country')
 def country():
-    country = []  #评分
-    num = []    #每个评分所统计出的电影数量
-    conn = pymysql.Connect(
-        host='192.168.43.100',
-        port=3306,
-        user='root',
-        passwd='Root@123',
-        db='doubanbook',
-        charset='utf8'
-    )
-    cur = conn.cursor()
+    country = []  # 评分
+    num = []  # 每个评分所统计出的电影数量
     sql = "select * from book_country_num"
-    data = cur.execute(sql)
-    result = cur.fetchall()
+    result = query(sql)
     for item in result:
         country.append(str(item[0]))
         num.append(item[1])
 
-    cur.close()
-    conn.close()
-    return render_template("country.html",country=country,num=num)
+    return render_template("country.html", country=country, num=num)
+
 
 @app.route('/peopletop10')
 def peopletop10():
-    people = []  #评论人数
-    title = []    #书名
-    s=[]
-    conn = pymysql.Connect(
-        host='192.168.43.100',
-        port=3306,
-        user='root',
-        passwd='Root@123',
-        db='doubanbook',
-        charset='utf8'
-    )
-    cur = conn.cursor()
+    people = []  # 评论人数
+    title = []  # 书名
+    s = []
     sql = "select * from book_people_title"
-    data = cur.execute(sql)
-    result = cur.fetchall()
+    result = query(sql)
     for item in result:
         s.append(item)
         people.append(str(item[0]))
         title.append(item[1])
 
-    cur.close()
-    conn.close()
-    return render_template("peopletop10.html", people=people,title=title)
-
+    return render_template("peopletop10.html", people=people, title=title)
 
 
 @app.route('/presstime')
 def presstime():
     year = []
     num = []
-    s=[]
-    conn = pymysql.Connect(
-        host='192.168.43.100',
-        port=3306,
-        user='root',
-        passwd='Root@123',
-        db='doubanbook',
-        charset='utf8'
-    )
-    cur = conn.cursor()
+    s = []
     sql = "select * from book_presstime_num"
-    data = cur.execute(sql)
-    result = cur.fetchall()
+    result = query(sql)
     for item in result:
         s.append(item)
         year.append(str(item[0]))
         num.append(item[1])
 
-    cur.close()
-    conn.close()
-    return render_template("presstime.html", year=year,num=num)
+    return render_template("presstime.html", year=year, num=num)
 
 
 @app.route('/publisher')
 def publisher():
     year = []
     num = []
-    s=[]
-    conn = pymysql.Connect(
-        host='192.168.43.100',
-        port=3306,
-        user='root',
-        passwd='Root@123',
-        db='doubanbook',
-        charset='utf8'
-    )
-    cur = conn.cursor()
+    s = []
     sql = "select * from book_publisher_num"
-    data = cur.execute(sql)
-    result = cur.fetchall()
+    result = query(sql)
     for item in result:
         s.append(item)
         year.append(str(item[0]))
         num.append(item[1])
 
-    cur.close()
-    conn.close()
-    return render_template("publisher.html", year=year,num=num)
-
+    return render_template("publisher.html", year=year, num=num)
 
 
 @app.route('/word')
 def word():
     return render_template("word.html")
+
 
 @app.route('/team')
 def team():
@@ -181,4 +143,9 @@ def team():
 
 
 if __name__ == '__main__':
-    app.run()
+    from gevent import pywsgi
+
+    server = pywsgi.WSGIServer(('0.0.0.0', 5000), app)
+
+    server.serve_forever()
+
