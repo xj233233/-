@@ -139,6 +139,44 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   list-style: none;
 }
 
+			*{
+				padding: 0;     /* 清除内外边距 */
+				margin: 0px;
+			}
+			.box{
+				text-align: center;
+				margin: 200px auto;
+			}
+			.box a{
+				display: inline-block; 		/* 将a转为行内快元素,并给他设置宽和高 */
+				width: 25px;
+				height: 25px;
+				border: 1px solid #ccc;
+				text-align: center;
+				line-height: 25px;			/* 将行高和高度设为一致,使它垂直居中 */
+				text-decoration: none;
+				color: #333;
+			}
+			.box .prve,			/* 考虑到权重 */
+			.box .next{
+				width: 80px;
+				height: 25px;
+				font-size: 14px
+			}
+			.box input{
+				width: 55px;
+				height: 23px;
+				outline: none; 	/* 取消轮廓属性 */
+			}
+			.box button{
+				width: 40px;
+				height: 25px;
+				font-size: 14px;
+				color: #333;
+				background-color: #fff;
+				border: 1px solid #ccc;
+			}
+
 .daohang .dh{
     float: left;
     margin-left: 0px;
@@ -152,7 +190,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 }
 
 .daohang .dh p{
-    width: 30px;
+    width: 48px;
     margin-left: -3px;
 }
 
