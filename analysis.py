@@ -6,9 +6,12 @@ import os
 import pandas as pd
 import re
 
+import time
+
 BOOKS = []
 IMGURLS = []
 
+start = time.time()
 # 2. 获取网页源代码
 def get_html(url):
     headers = {
@@ -217,6 +220,14 @@ if __name__ == '__main__':
     bookdata = pd.DataFrame(BOOKS)
     bookdata.to_csv('D:/pachong/book.csv', index=False)
     print("图书信息写入本地成功")
+
+
+
+    end = time.time()
+    print('程序执行时间: ', end - start)
+
+
+
 
     # 以txt格式写入本地错误
     # 得到的是字典格式，要想写成txt格式需要先转化成字符串格式
