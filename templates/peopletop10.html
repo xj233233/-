@@ -60,7 +60,7 @@
             <img src="../static/assets/img/1.png" style="width: 30px;height: 30px">
             <li class="focus"><p>国家</p></li>
         </a>
-        <a href="score.html" class="dh">
+        <a href="/score" class="dh">
             <img src="../static/assets/img/5.png" style="width: 30px; height: 30px">
             <li class="focus"><p>评分</p></li>
         </a>
@@ -128,41 +128,52 @@ var myChart = echarts.init(chartDom);
 var option;
 
 option = {
-    title: {
-        text: '评价人数top10的图书名称',
-        subtext: '数据来自豆瓣图书top250'
-    },
-    tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'shadow'
+  tooltip: {
+    trigger: 'item'
+  },
+  legend: {
+    top: '5%',
+    left: 'center'
+  },
+  series: [
+    {
+      name: '评价人数:',
+      type: 'pie',
+      radius: ['40%', '70%'],
+      avoidLabelOverlap: false,
+      itemStyle: {
+        borderRadius: 10,
+        borderColor: '#fff',
+        borderWidth: 2
+      },
+      label: {
+        show: false,
+        position: 'center'
+      },
+      emphasis: {
+        label: {
+          show: true,
+          fontSize: 40,
+          fontWeight: 'bold'
         }
-    },
-    legend:{
-        data:['出版量']
-    },
-    grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-    },
-    xAxis: {
-        type: 'value',
-        boundaryGap: [0, 0.01]
-    },
-    yAxis: {
-        type: 'category',
-        data: {{ title|tojson }}
-    },
-    series: [
-        {
-            name: '评价人数',
-            type: 'bar',
-            data: {{ people|tojson }}
-        },
-
-    ]
+      },
+      labelLine: {
+        show: false
+      },
+      data: [
+        { value: 781404, name: '活着' },
+        { value: 775802, name: '追风筝的人' },
+        { value: 744794, name: '解忧杂货店' },
+        { value: 731261, name: '小王子' },
+        { value: 506444, name: '嫌疑人X的献身' },
+        { value: 443639, name: '白夜行' },
+        { value: 437636, name: '围城' },
+        { value: 405149, name: '百年孤独' },
+        { value: 404125, name: '红楼梦' },
+        { value: 355759, name: '房思琪的初恋乐园' }
+      ]
+    }
+  ]
 };
 
 option && myChart.setOption(option);

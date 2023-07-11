@@ -1,8 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 import pymysql
-from flask_sqlalchemy.pagination import Pagination
-
-from connmysql import test1
 
 app = Flask(__name__)
 
@@ -42,12 +39,6 @@ def query(sql,*args):
     close_conn(conn,cursor)
     return res
 
-
-
-
-
-
-
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -61,7 +52,6 @@ def home():
 
 @app.route('/book')
 def tushu():
-
     datalist = []
     sql = "select * from books"
     result = query(sql)
@@ -150,7 +140,6 @@ def word():
 @app.route('/team')
 def team():
     return render_template("team.html")
-
 
 
 if __name__ == '__main__':

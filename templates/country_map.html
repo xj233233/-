@@ -8,11 +8,11 @@
 
 </head>
 <body >
-    <div id="e5fc3d77981f45ea9f7379261a5734de" class="chart-container" style="width:900px; height:500px; "></div>
+    <div id="6b08a454b0544caf824f2def8badd7df" class="chart-container" style="width:900px; height:500px; "></div>
     <script>
-        var chart_e5fc3d77981f45ea9f7379261a5734de = echarts.init(
-            document.getElementById('e5fc3d77981f45ea9f7379261a5734de'), 'white', {renderer: 'canvas'});
-        var option_e5fc3d77981f45ea9f7379261a5734de = {
+        var chart_6b08a454b0544caf824f2def8badd7df = echarts.init(
+            document.getElementById('6b08a454b0544caf824f2def8badd7df'), 'white', {renderer: 'canvas'});
+        var option_6b08a454b0544caf824f2def8badd7df = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -231,16 +231,15 @@
     ],
     "visualMap": {
         "show": true,
-        "type": "continuous",
+        "type": "piecewise",
         "min": 0,
         "max": 200,
-        "inRange": {
-            "color": [
-                "#50a3ba",
-                "#eac763",
-                "#d94e5d"
-            ]
-        },
+        pieces: [      // 自定义每一段的范围，以及每一段的文字
+        { gte: 100, label: '99本以上', color: '#ee6666' },
+        { gte: 20, lte: 99, label: '20-99本', color: '#6797ef' },
+        { gte: 10, lte: 19, label: '10-19本', color: '#fac858' },
+        { lte: 9, label: '1-9本', color: '#73c0de' }
+        ],
         "calculable": true,
         "inverse": false,
         "splitNumber": 5,
@@ -248,12 +247,12 @@
         "orient": "vertical",
         "padding": 5,
         "showLabel": true,
-        "itemWidth": 20,
-        "itemHeight": 140,
+        "itemWidth": 40,
+        "itemHeight": 20,
         "borderWidth": 0
     }
 };
-        chart_e5fc3d77981f45ea9f7379261a5734de.setOption(option_e5fc3d77981f45ea9f7379261a5734de);
+        chart_6b08a454b0544caf824f2def8badd7df.setOption(option_6b08a454b0544caf824f2def8badd7df);
     </script>
 </body>
 </html>
