@@ -8,10 +8,10 @@ def get_conn():
     :return 连接对象，游标对象
     """
     conn = pymysql.connect(
-        host='127.0.0.1',
+        host='123.249.31.143',
         port=3306,
-        user='root',
-        passwd='yyp20020923',
+        user='test001',
+        passwd='P@ssw0rd',
         db='doubanbook',
         charset='utf8'
     )

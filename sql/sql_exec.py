@@ -7,9 +7,9 @@ def execute_sql(database:str , sql: str):
     try:
         #请修改为自己的数据库连接
         db = pymysql.connect(
-            host="127.0.0.1",
-            user="root",
-            password="123456",
+            host="123.249.31.143",
+            user="test001",
+            password="P@ssw0rd",
         )
         print("连接成功")
         conn = db.cursor()
@@ -20,9 +20,9 @@ def execute_sql(database:str , sql: str):
     try:
         # 请修改为自己的数据库连接
         db = pymysql.connect(
-            host= "127.0.0.1",
-            user= "root",
-            password="123456",
+            host= "123.249.31.143",
+            user= "test001",
+            password="P@ssw0rd",
             database = database
         )
         connector = db.cursor()
@@ -55,9 +55,9 @@ def list_insert(list):
     # 请修改为自己的数据库连接
     execute_sql("doubanbook", "../sql/create_doubanbook.sql")
     db = pymysql.connect(
-        host="127.0.0.1",
-        user="root",
-        password="123456",
+        host="123.249.31.143",
+        user="test001",
+        password="P@ssw0rd",
         database="doubanbook"
     )
 
