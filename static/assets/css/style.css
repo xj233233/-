@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 
 			*{
 				padding: 0;     /* 清除内外边距 */
-				margin: 0;
+				margin: 0px;
 			}
 			.box{
 				text-align: center;
