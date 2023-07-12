@@ -1,5 +1,5 @@
 // 定义一个数组，保存当前所有页面的class name
-var page_index = ["page-1", "page-2", "page-3","page-3","page-3"];
+var page_index = ["page-1", "page-2", "page-3", "page-4", "page-5"];
 
 // 输入pagename，打开指定的div，隐藏其他的div
 function page_option(pagename){
@@ -11,7 +11,7 @@ function page_option(pagename){
 			   close_div[i].style.display="none";
 		};
 	}
-
+	
 	var opendiv = document.getElementsByClassName(pagename);
 	for (var i = 0; i<opendiv.length;i++) {
 		   opendiv[i].style.display="block";

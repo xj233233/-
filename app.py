@@ -100,6 +100,9 @@ def country():
 
     return render_template("country.html", country=country, num=num)
 
+@app.route('/country_map')
+def country_map():
+    return render_template("country_map.html")
 
 @app.route('/peopletop10')
 def peopletop10():

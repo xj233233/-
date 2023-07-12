@@ -187,7 +187,7 @@ button {
 }
 
 			*{
-				padding: 0;     /* 清除内外边距 */
+				padding: 0px;     /* 清除内外边距 */
 				margin: 0px;
 			}
 			.box{
@@ -224,6 +224,8 @@ button {
 				border: 1px solid #ccc;
 			}
 
+
+
 .daohang .dh{
     float: left;
     margin-left: 0px;
@@ -239,6 +241,118 @@ button {
 .daohang .dh p{
     width: 48px;
     margin-left: -3px;
+}
+
+body {
+	background: #efefef;
+}
+.page-block {
+	width: 1100px;
+	background: #efefef;
+	margin: auto auto;
+}
+.page-block h1 {
+	text-align: center;
+}
+.article-hover{
+	height: 150px;
+	background: #ffffff;
+}
+.article-hover:hover{
+	background: #f8f8f8;
+}
+.thumbnail {
+	width: 250px;
+	height: 150px;
+	display: flex;
+	align-items: center;
+	float: left;
+}
+.thumbnail img {
+	width: 200px;
+	height: 130px;
+	margin: 0 auto;
+}
+.info-content {
+	width: 850px;
+	height: 150px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.info-content a {
+	color: #000000;
+	text-decoration: none;
+	display: inline-block;
+	border: 1px solid #cdcdcd;
+	padding:4px 10px 5px;
+	border-radius: 10px;
+}
+.info-content a:hover {
+	background: linear-gradient(to right,#FFCC00,#FF9900);
+	color: #fff;
+}
+.li-title{
+	width: 850px;
+	font-size: 24px;
+	font-weight: 700;
+	text-align: left;
+}
+.li-content{
+	width: 830px;
+	font-size: 16px;
+	font-weight: 400;
+	text-align: left;
+}
+.page-icon{
+	width: 1200px;
+	margin: 35px auto 0;
+	font-size:0;
+	text-align:center;
+}
+.page-icon button {
+	border: none;
+	background-color: #efefef;
+	padding:4px 10px 5px;
+	font-size:20px;
+}
+.page-icon button:nth-child(3), .page-icon button:nth-child(4) {
+	cursor: default;
+}
+.page-icon button img {
+	width: 15px;
+	height: 15px;
+}
+#totalPage, #currentPage {
+	cursor: default;
+	border: none;
+	background-color: #efefef;
+	padding:4px 10px 5px;
+	font-size:20PX;
+}
+#currentPage {
+	cursor: auto;
+	text-align: center;
+	width: 40px;
+}
+.page-1{
+	display: block;
+}
+.page-2, .page-3,.page-4,.page-5{
+	display: none;
+}
+hr {
+	opacity: 50%;
+}
+
+.pp{
+  text-align: center;
+}
+
+.fontShow {
+  border : solid 1px #1c7430;
+  width: 120px;
+  display: inline-block;
 }
 
 .nav-menu > ul > li {
