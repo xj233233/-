@@ -67,6 +67,26 @@ button {
 * {
     box-sizing:border-box;
 }
+
+.button {
+display: inline-block; /*将按钮设为行内块元素*/position:relative;
+height: 50px;
+padding: 8px 20px; /*设置按钮内边距*/
+/*background:rgb(206, 87, 53);*/
+
+color: #F9F0DA; /*设置按钮文字颜色*/
+text-align: center; /*居中文字*/
+text-decoration: none; /*去除下划线*/
+font-size: 16px; /*设置文字大小*/
+margin: 5px; /*设置按钮之间的间距*/
+border: none; /*去除按钮边框*/
+border-radius: 5px; /*设置按钮圆角*/
+}
+/* 将多个按钮放在一个
+元素中 */
+.page-icon {
+text-align: center; /*居中*/
+}
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/

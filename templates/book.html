@@ -109,16 +109,20 @@
         <div class="section-title">
             <h2>豆瓣图书Top250图书</h2>
         </div>
-        </div>
-               <div class="search bar">
 
+
+        </div>
+
+
+        <div class="search bar">
             <form class="form" action="/search" method="post">
                 <input type="text" placeholder="请输入关键字" name ="keywords">
 <!--                <input type="submit" value = "搜索" class="input_sub">-->
-                <button type="submit" style="color: #F9F0DA">搜索</button>
+                <button type="submit" style="color: #F9F0DA" ><img src="../static/assets/img/老虎.png" height="40px" title="click去搜索"></button>
             </form>
         </div>
         <!-- ======= Counts Section ======= -->
+
         <section class="counts section-bg" style="padding: 0;width:fit-content;margin: auto;background-color: #ffffff" >
 
                 <div class="container" >
@@ -311,21 +315,24 @@
                     {% endfor %}
                 </table>
 	</div>
-
-
-
-
-            </div>
+                </div>
             <!-- 分页按钮 -->
 	<div class="page-icon">
-		<button class="firstPage" onclick="first_click()" ><img src="static/assets/img/page-icon/left-end.png"/></button>
-		<button class="beforePage" onclick="prev_click()" ><img src="static/assets/img/page-icon/page-left.png"/></button>
-		<button>第<input id="currentPage" onchange="choose_page()" type="text" value="1"/>页</button>
-		<button>/&nbsp;&nbsp;&nbsp;共<input id="totalPage" type="button" value="5" readonly="readonly">页</button>
-		<button class="nextPage" onclick="next_click()"><img src="static/assets/img/page-icon/page-right.png"/></button>
-		<button class="lastPage" onclick="last_click()"><img src="static/assets/img/page-icon/right-end.png"/></button>
+
+
+
+		<button class="firstPage button" onclick="first_click()" style="background:rgb(255, 255, 255)"><img src="static/assets/img/page-icon/left-end.png"/></button>
+		<button class="beforePage button" onclick="prev_click()"style="background:rgb(255, 255, 255)" ><img src="static/assets/img/page-icon/page-left.png"/></button>
+		<button class="button" style="width: 150px;background: #ce5735">第<input id="currentPage" onchange="choose_page()" type="text" value="1" style="background: #ce5735;color: #F9F0DA"/>页</button>
+		<button class="button" style="width: 150px;background: #ce5735">共<input id="totalPage" type="text" value="5" readonly="readonly" style="width: 40px;background: #ce5735;color:#F9F0DA;"/>页</button>
+		<button class="nextPage button" onclick="next_click()"style="background:rgb(255, 255, 255)"><img src="static/assets/img/page-icon/page-right.png"/></button>
+		<button class="lastPage button" onclick="last_click()" style="background:rgb(255, 255, 255)"><img src="static/assets/img/page-icon/right-end.png"/></button>
+
+
 	</div>
+
 	<script src="static/assets/js/index.js" type="text/javascript" charset="utf-8"></script>
+
 
         </section><!-- End Counts Section -->
 
@@ -341,7 +348,7 @@
       <div class="copyright">
         &copy; Copyright <strong><span>tiger</span></strong>. All Rights Reserved
       </div>
-    
+
     </div>
   </footer><!-- End Footer -->
 
