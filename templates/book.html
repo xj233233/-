@@ -101,12 +101,20 @@
 
   <!-- ======= Our Team Section ======= -->
     <section id="team" class="team">
-        <div class="container">
+      <div class="container">
 
         <div class="section-title">
-            <h2>豆瓣图书Top250图书</h2>
+          <h2>豆瓣图书Top250图书</h2>
         </div>
+        <div class="search bar">
+<!--            默认方式get，action默认当前界面-->
+            <form class="form" action="/search" method="post">
+                <input type="text" placeholder="请输入关键字" name ="keywords">
+<!--                <input type="submit" value = "搜索" class="input_sub">-->
+                <button type="submit" style="color: #F9F0DA">搜索</button>
+            </form>
         </div>
+
         <!-- ======= Counts Section ======= -->
         <section class="counts section-bg" style="padding: 0;width:fit-content;margin: auto;background-color: #ffffff" >
 
@@ -133,8 +141,6 @@
 
                     {% for tushu in book %}
                         <tr>
-
-
                             <td>
                                 <a href="{{ tushu[1] }}" target="_blank">
                                     {{tushu[0]}}
@@ -160,7 +166,6 @@
 
 
                 </table>
-
 
             </div>
 
