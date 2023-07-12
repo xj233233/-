@@ -22,6 +22,7 @@
   <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
   <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="static/assets/css/index.css"/>
 
   <!-- Template Main CSS File -->
   <link href="static/assets/css/style.css" rel="stylesheet">
@@ -113,11 +114,11 @@
         <section class="counts section-bg" style="padding: 0;width:fit-content;margin: auto;background-color: #ffffff" >
 
                 <div class="container" >
-
-                    <table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
+                    <div class="page-block">
+		<div class="page-1">
+<table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
 
                     <tr style="background-color: #ffffff;width:100px">
-
                         <td>书名</td>
                         <td>作者</td>
                         <td style="width: 100px">译者</td>
@@ -129,23 +130,15 @@
                         <td style="width: 100px">评价人数</td>
                         <td >一句话概述</td>
                         <td></td>
-
-
                     </tr>
-
-                    {% for tushu in book %}
+                    {% for tushu in book[0:50] %}
                         <tr>
-
-
                             <td>
                                 <a href="{{ tushu[1] }}" target="_blank">
                                     {{tushu[0]}}
                                 </a>
                             </td>
-
-
                             <td>{{ tushu[3] }}</td>
-
                             <td>{{tushu[4]}}</td>
                             <td>{{tushu[5]}}</td>
                             <td>{{tushu[6]}}</td>
@@ -155,16 +148,176 @@
                             <td>{{tushu[10]}}</td>
                             <td>{{tushu[11]}}</td>
                             <td>{{tushu[12]}}</td>
-
                         </tr>
-
                     {% endfor %}
-
-
                 </table>
+			</div>
+		</div>
+
+		<div class="page-2">
+<table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
+
+                    <tr style="background-color: #ffffff;width:100px">
+                        <td>书名</td>
+                        <td>作者</td>
+                        <td style="width: 100px">译者</td>
+                        <td style="width: 150px">出版社</td>
+                        <td style="width: 100px">出版时间</td>
+                        <td>价格</td>
+                        <td style="width: 100px">星级</td>
+                        <td style="width: 100px">评分</td>
+                        <td style="width: 100px">评价人数</td>
+                        <td >一句话概述</td>
+                        <td></td>
+                    </tr>
+                    {% for tushu in book[50:100] %}
+                        <tr>
+                            <td>
+                                <a href="{{ tushu[1] }}" target="_blank">
+                                    {{tushu[0]}}
+                                </a>
+                            </td>
+                            <td>{{ tushu[3] }}</td>
+                            <td>{{tushu[4]}}</td>
+                            <td>{{tushu[5]}}</td>
+                            <td>{{tushu[6]}}</td>
+                            <td>{{tushu[7]}}</td>
+                            <td>{{tushu[8]}}</td>
+                            <td>{{tushu[9]}}</td>
+                            <td>{{tushu[10]}}</td>
+                            <td>{{tushu[11]}}</td>
+                            <td>{{tushu[12]}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+		</div>
+
+		<div class="page-3">
+<table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
+
+                    <tr style="background-color: #ffffff;width:100px">
+                        <td>书名</td>
+                        <td>作者</td>
+                        <td style="width: 100px">译者</td>
+                        <td style="width: 150px">出版社</td>
+                        <td style="width: 100px">出版时间</td>
+                        <td>价格</td>
+                        <td style="width: 100px">星级</td>
+                        <td style="width: 100px">评分</td>
+                        <td style="width: 100px">评价人数</td>
+                        <td >一句话概述</td>
+                        <td></td>
+                    </tr>
+                    {% for tushu in book[100:150] %}
+                        <tr>
+                            <td>
+                                <a href="{{ tushu[1] }}" target="_blank">
+                                    {{tushu[0]}}
+                                </a>
+                            </td>
+                            <td>{{ tushu[3] }}</td>
+                            <td>{{tushu[4]}}</td>
+                            <td>{{tushu[5]}}</td>
+                            <td>{{tushu[6]}}</td>
+                            <td>{{tushu[7]}}</td>
+                            <td>{{tushu[8]}}</td>
+                            <td>{{tushu[9]}}</td>
+                            <td>{{tushu[10]}}</td>
+                            <td>{{tushu[11]}}</td>
+                            <td>{{tushu[12]}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+	</div>
+    <div class="page-4">
+<table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
+
+                    <tr style="background-color: #ffffff;width:100px">
+                        <td>书名</td>
+                        <td>作者</td>
+                        <td style="width: 100px">译者</td>
+                        <td style="width: 150px">出版社</td>
+                        <td style="width: 100px">出版时间</td>
+                        <td>价格</td>
+                        <td style="width: 100px">星级</td>
+                        <td style="width: 100px">评分</td>
+                        <td style="width: 100px">评价人数</td>
+                        <td >一句话概述</td>
+                        <td></td>
+                    </tr>
+                    {% for tushu in book[150:200] %}
+                        <tr>
+                            <td>
+                                <a href="{{ tushu[1] }}" target="_blank">
+                                    {{tushu[0]}}
+                                </a>
+                            </td>
+                            <td>{{ tushu[3] }}</td>
+                            <td>{{tushu[4]}}</td>
+                            <td>{{tushu[5]}}</td>
+                            <td>{{tushu[6]}}</td>
+                            <td>{{tushu[7]}}</td>
+                            <td>{{tushu[8]}}</td>
+                            <td>{{tushu[9]}}</td>
+                            <td>{{tushu[10]}}</td>
+                            <td>{{tushu[11]}}</td>
+                            <td>{{tushu[12]}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+	</div>
+    <div class="page-5">
+<table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
+
+                    <tr style="background-color: #ffffff;width:100px">
+                        <td>书名</td>
+                        <td>作者</td>
+                        <td style="width: 100px">译者</td>
+                        <td style="width: 150px">出版社</td>
+                        <td style="width: 100px">出版时间</td>
+                        <td>价格</td>
+                        <td style="width: 100px">星级</td>
+                        <td style="width: 100px">评分</td>
+                        <td style="width: 100px">评价人数</td>
+                        <td >一句话概述</td>
+                        <td></td>
+                    </tr>
+                    {% for tushu in book[200:250] %}
+                        <tr>
+                            <td>
+                                <a href="{{ tushu[1] }}" target="_blank">
+                                    {{tushu[0]}}
+                                </a>
+                            </td>
+                            <td>{{ tushu[3] }}</td>
+                            <td>{{tushu[4]}}</td>
+                            <td>{{tushu[5]}}</td>
+                            <td>{{tushu[6]}}</td>
+                            <td>{{tushu[7]}}</td>
+                            <td>{{tushu[8]}}</td>
+                            <td>{{tushu[9]}}</td>
+                            <td>{{tushu[10]}}</td>
+                            <td>{{tushu[11]}}</td>
+                            <td>{{tushu[12]}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+	</div>
+
+
 
 
             </div>
+            <!-- 分页按钮 -->
+	<div class="page-icon">
+		<button class="firstPage" onclick="first_click()" ><img src="static/assets/img/page-icon/left-end.png"/></button>
+		<button class="beforePage" onclick="prev_click()" ><img src="static/assets/img/page-icon/page-left.png"/></button>
+		<button>第<input id="currentPage" onchange="choose_page()" type="text" value="1"/>页</button>
+		<button>/&nbsp;&nbsp;&nbsp;共<input id="totalPage" type="button" value="5" readonly="readonly">页</button>
+		<button class="nextPage" onclick="next_click()"><img src="static/assets/img/page-icon/page-right.png"/></button>
+		<button class="lastPage" onclick="last_click()"><img src="static/assets/img/page-icon/right-end.png"/></button>
+	</div>
+	<script src="static/assets/js/index.js" type="text/javascript" charset="utf-8"></script>
 
         </section><!-- End Counts Section -->
 
