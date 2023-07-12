@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import pymysql
+
 
 app = Flask(__name__)
 
@@ -60,6 +61,19 @@ def tushu():
     print(datalist)
     return render_template("book.html", book=datalist)
 
+# 检索
+@app.route('/search', methods=['POST'])
+def search():
+    find_book = []
+    keywords = request.form.get('keywords')
+    print(keywords)
+    # sql = "select * from books where title like '%" + keywords + "%' "
+    sql = 'select * from books where title like "%%{0}%%"'.format(keywords)
+    result = query(sql)
+    for item in result:
+        find_book.append(item)
+    print(find_book)
+    return render_template('book.html', book=find_book)
 
 @app.route('/score')
 def score():
