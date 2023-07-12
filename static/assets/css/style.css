@@ -140,7 +140,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 }
 
 			*{
-				padding: 0;     /* 清除内外边距 */
+				padding: 0px;     /* 清除内外边距 */
 				margin: 0px;
 			}
 			.box{
@@ -177,6 +177,8 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 				border: 1px solid #ccc;
 			}
 
+
+
 .daohang .dh{
     float: left;
     margin-left: 0px;
@@ -192,6 +194,16 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 .daohang .dh p{
     width: 48px;
     margin-left: -3px;
+}
+
+.pp{
+  text-align: center;
+}
+
+.fontShow {
+  border : solid 1px #1c7430;
+  width: 120px;
+  display: inline-block;
 }
 
 .nav-menu > ul > li {
