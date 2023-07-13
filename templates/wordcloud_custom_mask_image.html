@@ -3,7 +3,38 @@
 {% block title %}豆瓣图书Top250数据分析{% endblock %}
 
  {% block content %}
-    <div id="f7a8adf2b42342c1a2f209b1f495bdfc" class="chart-container"  style="margin: auto; background:white;width:1200px; height:500px; "></div>
+
+ <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+
+      <div class="container" style="max-width: 1250px">
+
+        <div class="row no-gutters" style="width: 1300px">
+<!--          <div class="col-lg-6 video-box">-->
+<!--            <img src="static/assets/img/word.jpg" class="img-fluid" alt="">-->
+
+<!--          </div>-->
+     <div id="f7a8adf2b42342c1a2f209b1f495bdfc" class="chart-container"  style=" background:white;width:600px; height:500px; "></div>
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center about-content" style="width: 400px">
+
+            <div class="section-title">
+              <h2>词频统计</h2>
+              <p>根据250部图书的一句话描述，提炼出词云树，可以让我们更加清晰的了解人们对经典图书的理解</p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="bx bx-fingerprint"></i></div>
+              <h4 class="title"><a href="">关于图书</a></h4>
+              <p class="description">不知道你从中悟到了什么</p>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
     <script>
     function refresh(){
     url = location.href; //把当前页面的地址赋给变量 url
@@ -2051,4 +2082,5 @@
 };
         chart_f7a8adf2b42342c1a2f209b1f495bdfc.setOption(option_f7a8adf2b42342c1a2f209b1f495bdfc);
     </script>
+
 {% endblock %}
