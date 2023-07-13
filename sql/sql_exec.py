@@ -84,7 +84,7 @@ def list_insert(list):
         # 行字段
         values = ', '.join(['%s'] * len(book_elemnets))
         sql = 'REPLACE INTO {table}({keys}) VALUES ({values})'.format(table=table, keys=keys, values=values)
-        # 将字段的value转化为元祖存入
+        # 将字段的value转化为元组存入
 
         try:
             # 这里的第二个参数传入的要是一个元组

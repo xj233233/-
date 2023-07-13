@@ -10,6 +10,16 @@
 <body >
     <div id="f7a8adf2b42342c1a2f209b1f495bdfc" class="chart-container" style="width:900px; height:500px; "></div>
     <script>
+    function refresh(){
+    url = location.href; //把当前页面的地址赋给变量 url
+    //分切变量 url 分隔符号为 "#"
+    if( url.indexOf("#") == -1){ //如果url后没有#
+        url += "#"; //加入 #
+        self.location.replace(url); //刷新页面
+        }
+    }
+    refresh()
+
         var chart_f7a8adf2b42342c1a2f209b1f495bdfc = echarts.init(
             document.getElementById('f7a8adf2b42342c1a2f209b1f495bdfc'), 'white', {renderer: 'canvas'});
             
