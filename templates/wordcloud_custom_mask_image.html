@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Awesome-pyecharts</title>
-                <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
-            <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts-wordcloud.min.js"></script>
+{% extends "layout.html" %}
 
-</head>
-<body >
-    <div id="f7a8adf2b42342c1a2f209b1f495bdfc" class="chart-container" style="width:900px; height:500px; "></div>
+{% block title %}豆瓣图书Top250数据分析{% endblock %}
+
+ {% block content %}
+    <div id="f7a8adf2b42342c1a2f209b1f495bdfc" class="chart-container"  style="margin: auto; background:white;width:1200px; height:500px; "></div>
     <script>
     function refresh(){
     url = location.href; //把当前页面的地址赋给变量 url
@@ -2056,5 +2051,4 @@
 };
         chart_f7a8adf2b42342c1a2f209b1f495bdfc.setOption(option_f7a8adf2b42342c1a2f209b1f495bdfc);
     </script>
-</body>
-</html>
+{% endblock %}
