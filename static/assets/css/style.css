@@ -7,6 +7,8 @@ body {
   color: #444;
 }
 
+
+
 a {
   color: #428bca;
 }
@@ -250,9 +252,12 @@ text-align: center; /*居中*/
     float: left;
     margin-left: 0px;
     font-size: 6px;
+
+  display: inline-block;
 }
 
 .daohang{
+    position: relative;
     float: right;
     margin-top: 0px;
     margin-right: 0px;
