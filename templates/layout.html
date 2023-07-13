@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script src="static/assets/js/echarts.min.js"></script>
+  <title>{% block title %}{% endblock %}   </title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/team/team.png" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+
+      <nav class="nav-menu float-left">
+        <div class="col-xl-2 col-lg-4 col-md-6">
+        <ul>
+            <img src="../static/assets/img/team/team.png" style="width: 99px; height: 90px">
+        </ul>
+        </div>
+      </nav>
+
+      <nav class="nav-menu float-right">
+        <ul>
+            <div class="daohang" id="nav">
+        <a href="/index" class="dh" >
+            <img src="../static/assets/img/6.png" style="width: 30px; height: 30px">
+            <li class="focus"><p>首页</p></li>
+        </a>
+        <a href="/book" class="dh">
+            <img src="../static/assets/img/11.png" style="width: 30px; height: 30px">
+            <li class="focus"><p>图书</p></li>
+        </a>
+        <a href="/country" class="dh">
+            <img src="../static/assets/img/1.png" style="width: 30px;height: 30px">
+            <li class="focus"><p>国家</p></li>
+        </a>
+        <a href="/score" class="dh">
+            <img src="../static/assets/img/5.png" style="width: 30px; height: 30px">
+            <li class="focus"><p>评分</p></li>
+        </a>
+        <a href="/peopletop10" class="dh">
+            <img src="../static/assets/img/3.png" style="width: 30px; height: 30px">
+            <li class="focus"><p>评论人数</p></li>
+        </a>
+        <a href="/presstime" class="dh">
+            <img src="../static/assets/img/2.png" style="width: 30px; height: 30px">
+            <li class="focus"><p>出版年份</p></li>
+        </a>
+          <a href="/publisher" class="dh">
+            <img src="../static/assets/img/4.png" style="width: 30px; height: 30px">
+              <li class="focus"><p>出版社</p></li>
+        </a>
+        <a href="/map" class="dh">
+            <img src="../static/assets/img/7.png" style="width: 30px;height: 30px">
+            <li class="focus"><p>地图</p></li>
+        </a>
+        <a href="people" class="dh">
+            <img src="../static/assets/img/8.png" style="width: 30px; height: 30px">
+            <li class="focus"><p>评论</p></li>
+        </a>
+        <a href="/word" class="dh">
+            <img src="../static/assets/img/9.png" style="width: 30px; height: 30px">
+            <li class="focus"><p>词云</p></li>
+        </a>
+        <a href="/team" class="dh">
+            <img src="../static/assets/img/10.png" style="width: 30px; height: 30px">
+            <li class="focus"><p>团队</p></li>
+        </a>
+            </div>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+{% block content %}{% endblock %}
+<!--  &lt;!&ndash; ======= Our Team Section ======= &ndash;&gt;-->
+<!--    <section id="team" class="team">-->
+<!--      <div class="container">-->
+
+<!--       <div class="section-title" >-->
+<!--          <h2>豆瓣图书Top250数据分析</h2>-->
+<!--          <p>应用Python爬虫、Flask框架、Echarts、WordCloud等技术实现</p>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; ======= Counts Section ======= &ndash;&gt;-->
+<!--    <section class="counts section-bg" >-->
+<!--      <div class="container">-->
+
+<!--        <div class="row">-->
+
+<!--          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">-->
+<!--              <a href="/book">-->
+<!--            <div class="count-box">-->
+<!--{#              <i class="icofont-simple-smile" style="color: #20b38e;"></i>#}-->
+<!--                <i><img src="../static/assets/img/书籍.png" alt="" height="50">-->
+<!--                </i>-->
+<!--              <span data-toggle="counter-up">250</span>-->
+<!--              <p>经典图书</p>-->
+<!--            </div>-->
+<!--              </a>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">-->
+<!--              <a href="/score">-->
+<!--            <div class="count-box">-->
+<!--{#              <i class="icofont-document-folder" style="color: #c042ff;"></i>#}-->
+<!--                <i><img src="../static/assets/img/评分.png" alt="" height="50">-->
+<!--                </i>-->
+<!--              <span data-toggle="counter-up">敬请期待</span>-->
+<!--              <p>评分统计</p>-->
+<!--            </div>-->
+<!--              </a>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">-->
+<!--             <a href="/word">-->
+<!--                <div class="count-box">-->
+<!--{#                 <i class="icofont-live-support" style="color: #46d1ff;"></i>#}-->
+
+<!--                <i><img src="../static/assets/img/英语.png" alt="" height="50">-->
+<!--                </i>-->
+<!--                <span data-toggle="counter-up">敬请期待</span>-->
+<!--                 <p>词汇统计</p>-->
+<!--                </div>-->
+<!--             </a>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="600">-->
+<!--            <a href="/team">-->
+<!--            <div class="count-box">-->
+<!--{#              <i class="icofont-users-alt-5" style="color: #ffb459;"></i>#}-->
+<!--                <i><img src="../static/assets/img/Teamwork.png" alt="" height="50">-->
+<!--                </i>-->
+<!--              <span data-toggle="counter-up">5</span>-->
+<!--              <p>团队成员</p>-->
+<!--            </div>-->
+<!--            </a>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; End Counts Section &ndash;&gt;-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; End Our Team Section &ndash;&gt;-->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>tiger</span></strong>. All Rights Reserved
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="static/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="static/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>

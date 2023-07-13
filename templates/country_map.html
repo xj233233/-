@@ -2,14 +2,105 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Awesome-pyecharts</title>
+    <title>豆瓣Top250数据分析</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/team/team.png" rel="icon">
                 <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
             <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/maps/world.js"></script>
+    <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
 
+  <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
 </head>
 <body >
+    <header id="header">
+    <div class="container">
+
+      <nav class="nav-menu float-left">
+        <div class="col-xl-2 col-lg-4 col-md-6">
+        <ul>
+            <img src="static/assets/img/team/team.png" style="width: 99px; height: 90px">
+        </ul>
+        </div>
+      </nav>
+
+      <nav class="nav-menu float-right">
+        <ul>
+            <div class="daohang pp" id="nav">
+        <a href="/index" class="dh" >
+            <img src="../static/assets/img/6.png" style="width: 30px; height: 30px">
+            <div class="focus"><p>首页</p></div>
+        </a>
+        <a href="/book" class="dh">
+            <img src="../static/assets/img/11.png" style="width: 30px; height: 30px">
+            <div class="focus"><p>图书</p></div>
+        </a>
+        <a href="/country" class="dh">
+            <img src="../static/assets/img/1.png" style="width: 30px;height: 30px">
+            <div class="focus"><p>国家</p></div>
+        </a>
+        <a href="/score" class="dh">
+            <img src="../static/assets/img/5.png" style="width: 30px; height: 30px">
+            <div class="focus"><p>评分</p></div>
+        </a>
+        <a href="/peopletop10" class="dh">
+            <img src="../static/assets/img/3.png" style="width: 30px; height: 30px">
+            <div class="focus"><p>评论人数</p></div>
+        </a>
+        <a href="/presstime" class="dh">
+            <img src="../static/assets/img/2.png" style="width: 30px; height: 30px">
+            <div class="focus"><p>出版年份</p></div>
+        </a>
+          <a href="/publisher" class="dh">
+            <img src="../static/assets/img/4.png" style="width: 30px; height: 30px">
+              <div class="focus"><p>出版社</p></div>
+        </a>
+        <a href="/map" class="dh">
+            <img src="../static/assets/img/7.png" style="width: 30px;height: 30px">
+            <div class="focus"><p>地图</p></div>
+        </a>
+        <a href="people" class="dh">
+            <img src="../static/assets/img/8.png" style="width: 30px; height: 30px">
+            <div class="focus"><p>评论</p></div>
+        </a>
+        <a href="/word" class="dh">
+            <img src="../static/assets/img/9.png" style="width: 30px; height: 30px">
+            <div class="focus"><p>词云</p></div>
+        </a>
+        <a href="/team" class="dh">
+            <img src="../static/assets/img/10.png" style="width: 30px; height: 30px">
+            <div class="focus"><p>团队</p></div>
+        </a>
+            </div>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header>
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>豆瓣图书Top250国家分布图</h2>
+        </div>
+        <div class="pp">
+            <a href="/country"class="fontShow">条形图</a>
+            <a href="/country_map" class="fontShow">地图</a>
+        </div>
+        <!-- ======= Counts Section ======= -->
+
+      </div>
+    </section><!-- End Our Team Section -->
     <div id="6b08a454b0544caf824f2def8badd7df" class="chart-container" style="width:900px; height:500px; "></div>
-    <script>
+    <script type="text/javascript">
         var chart_6b08a454b0544caf824f2def8badd7df = echarts.init(
             document.getElementById('6b08a454b0544caf824f2def8badd7df'), 'white', {renderer: 'canvas'});
         var option_6b08a454b0544caf824f2def8badd7df = {
@@ -254,5 +345,21 @@
 };
         chart_6b08a454b0544caf824f2def8badd7df.setOption(option_6b08a454b0544caf824f2def8badd7df);
     </script>
+<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="static/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="static/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/main.js"></script>
 </body>
 </html>
