@@ -367,10 +367,11 @@ hr {
 
 .pp{
   text-align: center;
+    padding-bottom: 10px;
 }
 
 .fontShow {
-  border : solid 1px #1c7430;
+  /*border : solid 1px #1c7430;*/
   width: 120px;
   display: inline-block;
 }
