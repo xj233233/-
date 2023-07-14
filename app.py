@@ -150,7 +150,7 @@ def publisher():
 
 
 @app.route('/wordcloud_custom_mask_image')
-def wordcloud_custom_mask_image():
+def word():
     return render_template("wordcloud_custom_mask_image.html")
 
 
