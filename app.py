@@ -51,7 +51,7 @@ def home():
     return index()
 
 
-@app.route('/wordcloud_custom_mask_image')
+@app.route('/book')
 def tushu():
     datalist = []
     sql = "select * from books"
@@ -59,7 +59,7 @@ def tushu():
     for item in result:
         datalist.append(item)
     print(datalist)
-    return render_template("wordcloud_custom_mask_image.html", book=datalist)
+    return render_template("book.html", book=datalist)
 
 # 检索
 @app.route('/search', methods=['POST'])
@@ -149,9 +149,9 @@ def publisher():
     return render_template("publisher.html", year=year, num=num)
 
 
-@app.route('/word')
+@app.route('/wordcloud_custom_mask_image')
 def word():
-    return render_template("word.html")
+    return render_template("wordcloud_custom_mask_image.html")
 
 
 @app.route('/team')
