@@ -1,0 +1,96 @@
+
+<!-- saved from url=(0058)https://vasturiano.github.io/3d-force-graph/example/basic/ -->
+{% extends "layout.html" %}
+
+{% block title %}豆瓣图书Top250数据分析{% endblock %}
+
+ {% block content %}
+
+<body>
+  <div id="3d-graph"></div>
+
+
+  <script type="importmap">{ "imports": { "three": "https://unpkg.com/three/build/three.module.js" }}</script>
+  <script type = "module">
+     import { UnrealBloomPass } from '//unpkg.com/three/examples/jsm/postprocessing/UnrealBloomPass.js';
+
+    let gData = '{{ gData| safe }}';
+    console.log(gData)
+    let j = 0
+    const data = eval('(' + gData + ')');
+    for( ; j < data.nodes.length; j++){
+        data.nodes[j].book_data = JSON.stringify(data.nodes[j].book_data);
+        data.nodes[j].rating = JSON.stringify(data.nodes[j].rating)
+        console.log(data.nodes[j].book_data)
+        console.log(data.nodes[j].rating)
+    }
+    console.log(data)
+    const Graph = ForceGraph3D()
+      (document.getElementById('3d-graph'))
+        .graphData(data)
+        .nodeVal(5)
+        .nodeAutoColorBy('rating')
+        .nodeThreeObject(node => {
+          const sprite = new SpriteText(JSON.parse(node.book_data)["name"]);
+          sprite.material.depthWrite = false; // make sprite background transparent
+          sprite.color = node.color;
+          sprite.textHeight = 8;
+          return sprite;
+        })
+        .nodeLabel('book_data')
+        .linkThreeObjectExtend(true)
+        .linkThreeObject(link => {
+          // extend link with text sprite
+          const sprite = new SpriteText("读者可能喜欢");
+          sprite.color = 'lightgrey';
+          sprite.textHeight = 3.0;
+          return sprite;
+        })
+        .linkPositionUpdate((sprite, { start, end }) => {
+          const middlePos = Object.assign(...['x', 'y', 'z'].map(c => ({
+            [c]: start[c] + (end[c] - start[c]) / 2 // calc middle point
+          })));
+
+          // Position sprite
+          Object.assign(sprite.position, middlePos);
+        })
+        .linkLabel('relationship')
+        .linkDirectionalArrowLength(3.5) //箭头长度
+        .linkDirectionalArrowRelPos(1) //箭头位置偏移 source指向target
+        .linkCurvature(0.25) //曲度
+        .onNodeClick(node => {
+            const bid = JSON.parse(node.book_data)["bid"]
+            window.open("https://book.douban.com/subject/"+bid);
+        })//点击跳转到该书的页面
+        .onNodeRightClick(node => {
+          // Aim at node from outside it
+          const distance = 40;
+          const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
+
+          const newPos = node.x || node.y || node.z
+            ? { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }
+            : { x: 0, y: 0, z: distance }; // special case if node is in (0,0,0)
+
+          Graph.cameraPosition(
+            newPos, // new position
+            node, // lookAt ({ x, y, z })
+            3000  // ms transition duration
+          );
+        });
+        /*.onLinkHover (
+
+        )*/
+        ;
+
+    const bloomPass = new UnrealBloomPass();
+    bloomPass.strength = 1.25;
+    bloomPass.radius = 1;
+    bloomPass.threshold = 0.1;
+    Graph.postProcessingComposer().addPass(bloomPass);
+    // Spread nodes a little wider
+    Graph.d3Force('charge').strength(-120);
+
+  </script>
+</body>
+
+{% endblock %}
