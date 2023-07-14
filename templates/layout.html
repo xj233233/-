@@ -2,13 +2,16 @@
 <html lang="en">
 
 <head>
-
+    <style> body { margin: 0; } </style>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <script src="static/assets/js/echarts.min.js"></script>
     <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
     <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/maps/world.js"></script>
     <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts-wordcloud.min.js"></script>
+    <script src="/static/assets/js/3d-force-graph.min.js"></script>
+    <script src="/static/assets/js/build_three.js"></script>
+    <script src="/static/assets/js/three-spritetext.min.js"></script>
   <title>{% block title %}{% endblock %}   </title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
@@ -79,9 +82,9 @@
             <img src="../static/assets/img/4.png" style="width: 30px; height: 30px">
               <li class="focus"><p>出版社</p></li>
         </a>
-        <a href="/map" class="dh">
+        <a href="/rel" class="dh">
             <img src="../static/assets/img/7.png" style="width: 30px;height: 30px">
-            <li class="focus"><p>地图</p></li>
+            <li class="focus"><p>关系网</p></li>
         </a>
         <a href="/wordcloud_custom_mask_image" class="dh">
             <img src="../static/assets/img/9.png" style="width: 30px; height: 30px">

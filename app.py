@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import pymysql
-
+import json
+from py2neo import Graph,Node,Relationship
 
 app = Flask(__name__)
 
@@ -148,6 +149,36 @@ def publisher():
 
     return render_template("publisher.html", year=year, num=num)
 
+def push_to_gData(gData, unique_nodes, cur):
+
+    links = gData["links"]
+    nodes = gData["nodes"]
+
+    for data in cur:
+        source_node = data[0]
+        target_node = data[1]
+        if source_node["bid"] not in unique_nodes:
+            unique_nodes[source_node["bid"]] = dict(source_node)
+            nodes.append({"id": source_node["bid"], "book_data": dict(source_node), "rating": source_node["rating"]})
+        if target_node["bid"] not in unique_nodes:
+            unique_nodes[target_node["bid"]] = dict(target_node)
+            nodes.append({"id": target_node["bid"], "book_data": dict(target_node), "rating": source_node["rating"]})
+
+        link_obj = {"source": source_node["bid"], "target": target_node["bid"]}
+        links.append(link_obj)
+
+    gData = {"nodes": nodes, "links": links}
+    return gData, unique_nodes
+
+@app.route('/rel')
+def book_connection_query_rand():
+
+    graph = Graph("neo4j://localhost:7687", auth=("neo4j", "12345678"))
+    cur = graph.run("MATCH (m:Book)  MATCH (m)<-[:读者可能喜欢]-(p) RETURN * ")
+    gData = {"nodes": [], "links": []}
+    cur_data = [item for item in cur]
+    gData, unique_nodes = push_to_gData(gData, {}, cur_data)
+    return render_template('3d-force-graph.html', gData = json.dumps(gData))
 
 @app.route('/wordcloud_custom_mask_image')
 def word():
