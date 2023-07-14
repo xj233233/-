@@ -374,6 +374,14 @@ hr {
 	opacity: 50%;
 }
 
+
+
+.p img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 .pp{
   text-align: center;
     padding-bottom: 10px;
