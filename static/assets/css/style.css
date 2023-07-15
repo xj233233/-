@@ -71,8 +71,11 @@ button {
 }
 
 * {
-    cursor: url('https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/normal.cur'), pointer;
+    /*cursor: url('https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/normal.cur'), pointer;*/
+    cursor: url('cursor.ico'), pointer;
+
 }
+
 
 .button {
 display: inline-block; /*将按钮设为行内块元素*/position:relative;
