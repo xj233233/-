@@ -1,6 +1,7 @@
 from pyecharts import options as opts
 from pyecharts.charts import WordCloud
 
+
 words = [
 ('中国', 12), ('生活', 12), ('历史', 5), ('人生', 5), ('社会', 5),
     ('故事', 5), ('孩子', 4), ('代表作', 4), ('时代', 4), ('生命', 4),
@@ -33,7 +34,7 @@ words = [
     ('心灵史', 1), ('思无邪', 1), ('野草', 1)]
 
 
-
+# font_path='msyh.ttc'
 
 c = (
     WordCloud()
@@ -42,6 +43,7 @@ c = (
     .set_global_opts(title_opts=opts.TitleOpts(title="词频统计"))
     .render("templates/wordcloud_custom_mask_image.html")
 )
+
 #
 # c = (
 #     WordCloud()
