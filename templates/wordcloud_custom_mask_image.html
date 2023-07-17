@@ -6,6 +6,23 @@
 
 
  <!-- ======= About Us Section ======= -->
+
+<script>
+function refresh(){
+url = location.href;
+console.log(url);
+var once = url.split("#");
+if (once[1] != 1) {
+url += "#1";
+self.location.replace(url);
+window.location.reload();
+}
+}
+setTimeout('refresh()', 1000);
+
+</script>
+
+
     <section id="about" class="about">
 
       <div class="container" style="max-width: 1250px">
@@ -42,6 +59,7 @@
       </div>
     </section><!-- End About Us Section -->
     <script langage=javascript>
+
 <!--    self.location="wordcloud_custom_mask_image"-->
 <!--    function refresh(){-->
 <!--    url = location.href; //把当前页面的地址赋给变量 url-->
