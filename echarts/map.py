@@ -68,7 +68,7 @@ c = (
         visualmap_opts=opts.VisualMapOpts(max_=200),
 
     )
-    .render()
+    .render("../templates/country.html")
 )
 
 # 打开html

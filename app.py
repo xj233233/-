@@ -5,6 +5,7 @@ import json
 from graph_database import Bot
 from queue import Queue
 from py2neo import Graph
+from flask_paginate import get_page_parameter, Pagination
 
 app = Flask(__name__)
 
@@ -60,13 +61,25 @@ def home():
 
 
 @app.route('/book')
-def tushu():
+def books():
+    # 获取所有的书籍数据，books为数据列表
     datalist = []
     sql = "select * from books"
     result = query(sql)
     for item in result:
         datalist.append(item)
-    return render_template("book.html", book=datalist)
+    books = datalist
+    # 获取当前页码
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+    # 每页显示的数据量
+    per_page = 25
+    # 分页处理
+    pagination = Pagination(page=page, per_page=per_page, total=len(books), css_framework='bootstrap4')
+    # 获取当前页的数据
+    start = (page - 1) * per_page
+    end = start + per_page
+    books = books[start:end]
+    return render_template('book.html', book=books, pagination=pagination)
 
 
 # 检索
@@ -74,12 +87,22 @@ def tushu():
 def search():
     find_book = []
     keywords = request.form.get('keywords')
-    # sql = "select * from books where title like '%" + keywords + "%' "
     sql = 'select * from books where title like "%%{0}%%"'.format(keywords)
     result = query(sql)
     for item in result:
         find_book.append(item)
-    return render_template('book.html', book=find_book)
+    books=find_book
+     # 获取当前页码
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+    # 每页显示的数据量
+    per_page = 1
+    # 分页处理
+    pagination = Pagination(page=page, per_page=per_page, total=len(books), css_framework='bootstrap4')
+    # 获取当前页的数据
+    start = (page - 1) * per_page
+    end = start + per_page
+    books = books[start:end]
+    return render_template('book.html', book=find_book,pagination=pagination)
 
 
 @app.route('/score')

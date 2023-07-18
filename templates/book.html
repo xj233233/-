@@ -1,210 +1,25 @@
 {% extends "layout.html" %}
-
 {% block title %}豆瓣图书Top250数据分析{% endblock %}
-
  {% block content %}
-
   <!-- ======= Our Team Section ======= -->
     <section id="team" class="team">
         <div class="container">
-
         <div class="section-title">
             <h2>豆瓣图书Top250图书</h2>
         </div>
-
-
         </div>
-
-
         <div class="search bar">
             <form class="form" action="/search" method="post">
                 <input type="text" placeholder="请输入关键字" name ="keywords">
-<!--                <input type="submit" value = "搜索" class="input_sub">-->
-                <button type="submit" style="color: #F9F0DA" ><img src="../static/assets/img/老虎.png" height="40px" title="click去搜索"></button>
+                <button type="submit" style="color: #F9F0DA" >
+                    <img src="../static/assets/img/老虎.png" height="40px" title="click去搜索"></button>
             </form>
         </div>
         <!-- ======= Counts Section ======= -->
-
         <section class="counts section-bg" style="padding: 0;width:fit-content;margin: auto;background-color: #ffffff" >
-
-                <div class="container" >
-                    <div class="page-block">
-		<div class="page-1">
-        <table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
-
-                    <tr style="background-color: #ffffff;width:100px">
-                        <td>书名</td>
-                        <td>作者</td>
-                        <td style="width: 100px">译者</td>
-                        <td style="width: 150px">出版社</td>
-                        <td style="width: 100px">出版时间</td>
-                        <td>价格</td>
-                        <td style="width: 100px">星级</td>
-                        <td style="width: 100px">评分</td>
-                        <td style="width: 100px">评价人数</td>
-                        <td >一句话概述</td>
-                        <td style = "width: 70px">推荐</td>
-                    </tr>
-                    {% for tushu in book[0:50] %}
-                        <tr>
-                             <form action="/rel" method="post">
-                            <td>
-                                <a href="{{ tushu[1] }}" target="_blank">
-                                    {{tushu[0]}}
-                                </a>
-                            </td>
-                            <td>{{ tushu[3] }}</td>
-                            <td>{{tushu[4]}}</td>
-                            <td>{{tushu[5]}}</td>
-                            <td>{{tushu[6]}}</td>
-                            <td>{{tushu[7]}}</td>
-                            <td>{{tushu[8]}}</td>
-                            <td>{{tushu[9]}}</td>
-                            <td>{{tushu[10]}}</td>
-                            <td>{{tushu[11]}}</td>
-                                <input name="bid" value="{{tushu[1]}}" type="hidden">
-                            <td>
-                                <button type="submit">查看</button>
-                            </td>
-                            </form>
-                        </tr>
-                    {% endfor %}
-                </table>
-			</div>
-		</div>
-
-		<div class="page-2">
-<table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
-
-                    <tr style="background-color: #ffffff;width:100px">
-                        <td>书名</td>
-                        <td>作者</td>
-                        <td style="width: 100px">译者</td>
-                        <td style="width: 150px">出版社</td>
-                        <td style="width: 100px">出版时间</td>
-                        <td>价格</td>
-                        <td style="width: 100px">星级</td>
-                        <td style="width: 100px">评分</td>
-                        <td style="width: 100px">评价人数</td>
-                        <td >一句话概述</td>
-                        <td style = "width: 70px">推荐</td>
-                    </tr>
-                    {% for tushu in book[50:100] %}
-                        <tr>
-                             <form action="/rel" method="post">
-                            <td>
-                                <a href="{{ tushu[1] }}" target="_blank">
-                                    {{tushu[0]}}
-                                </a>
-                            </td>
-                            <td>{{ tushu[3] }}</td>
-                            <td>{{tushu[4]}}</td>
-                            <td>{{tushu[5]}}</td>
-                            <td>{{tushu[6]}}</td>
-                            <td>{{tushu[7]}}</td>
-                            <td>{{tushu[8]}}</td>
-                            <td>{{tushu[9]}}</td>
-                            <td>{{tushu[10]}}</td>
-                            <td>{{tushu[11]}}</td>
-                                <input name="bid" value="{{tushu[1]}}" type="hidden">
-                            <td>
-                                <button type="submit">查看</button>
-                            </td>
-                            </form>
-                        </tr>
-                    {% endfor %}
-                </table>
-		</div>
-
-		<div class="page-3">
-<table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
-
+            <table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
                     <tr style="background-color: #ffffff;width:100px">
                         <td style="width: 180px">书名</td>
-                        <td>作者</td>
-                        <td style="width: 100px">译者</td>
-                        <td style="width: 150px">出版社</td>
-                        <td style="width: 100px">出版时间</td>
-                        <td>价格</td>
-                        <td style="width: 100px">星级</td>
-                        <td style="width: 100px">评分</td>
-                        <td style="width: 100px">评价人数</td>
-                        <td style="width: 270px">一句话概述</td>
-                        <td style = "width: 70px">推荐</td>
-                    </tr>
-                    {% for tushu in book[100:150] %}
-                        <tr>
-                             <form action="/rel" method="post">
-                            <td>
-                                <a href="{{ tushu[1] }}" target="_blank">
-                                    {{tushu[0]}}
-                                </a>
-                            </td>
-                            <td>{{ tushu[3] }}</td>
-                            <td>{{tushu[4]}}</td>
-                            <td>{{tushu[5]}}</td>
-                            <td>{{tushu[6]}}</td>
-                            <td>{{tushu[7]}}</td>
-                            <td>{{tushu[8]}}</td>
-                            <td>{{tushu[9]}}</td>
-                            <td>{{tushu[10]}}</td>
-                            <td>{{tushu[11]}}</td>
-                                <input name="bid" value="{{tushu[1]}}" type="hidden">
-                            <td>
-                                <button type="submit">查看</button>
-                            </td>
-                            </form>
-                        </tr>
-                    {% endfor %}
-                </table>
-	</div>
-    <div class="page-4">
-<table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
-
-                    <tr style="background-color: #ffffff;width:100px">
-                        <td style="width: 150px">书名</td>
-                        <td>作者</td>
-                        <td style="width: 100px">译者</td>
-                        <td style="width: 150px">出版社</td>
-                        <td style="width: 100px">出版时间</td>
-                        <td>价格</td>
-                        <td style="width: 100px">星级</td>
-                        <td style="width: 100px">评分</td>
-                        <td style="width: 100px">评价人数</td>
-                        <td style="width: 270px">一句话概述</td>
-                        <td style = "width: 70px">推荐</td>
-                    </tr>
-                    {% for tushu in book[150:200] %}
-                        <tr>
-                             <form action="/rel" method="post">
-                            <td>
-                                <a href="{{ tushu[1] }}" target="_blank">
-                                    {{tushu[0]}}
-                                </a>
-                            </td>
-                            <td>{{ tushu[3] }}</td>
-                            <td>{{tushu[4]}}</td>
-                            <td>{{tushu[5]}}</td>
-                            <td>{{tushu[6]}}</td>
-                            <td>{{tushu[7]}}</td>
-                            <td>{{tushu[8]}}</td>
-                            <td>{{tushu[9]}}</td>
-                            <td>{{tushu[10]}}</td>
-                            <td>{{tushu[11]}}</td>
-                                <input name="bid" value="{{tushu[1]}}" type="hidden">
-                            <td>
-                                <button type="submit">查看</button>
-                            </td>
-                            </form>
-                        </tr>
-                    {% endfor %}
-                </table>
-	</div>
-    <div class="page-5">
-<table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
-
-                    <tr style="background-color: #ffffff;width:100px">
-                        <td style="width: 100px">书名</td>
                         <td style="width: 100px">作者</td>
                         <td style="width: 100px">译者</td>
                         <td style="width: 150px">出版社</td>
@@ -213,11 +28,10 @@
                         <td style="width: 100px">星级</td>
                         <td style="width: 100px">评分</td>
                         <td style="width: 100px">评价人数</td>
-                        <td style="width: 240px">一句话概述</td>
+                        <td style="width: 280px">一句话概述</td>
                         <td style = "width: 70px">推荐</td>
                     </tr>
-                    {% for tushu in book[200:250] %}
-
+                    {% for tushu in book %}
                         <tr>
                              <form action="/rel" method="post">
                             <td>
@@ -242,27 +56,9 @@
                         </tr>
                     {% endfor %}
                 </table>
-	</div>
-                </div>
-            <!-- 分页按钮 -->
-	<div class="page-icon">
-
-
-
-		<button class="firstPage button" onclick="first_click()" style="background:rgb(255, 255, 255)"><img src="static/assets/img/page-icon/left-end.png"/></button>
-		<button class="beforePage button" onclick="prev_click()"style="background:rgb(255, 255, 255)" ><img src="static/assets/img/page-icon/page-left.png"/></button>
-		<button class="button" style="width: 150px;background: #ce5735">第<input id="currentPage" onchange="choose_page()" type="text" value="1" style="background: #ce5735;color: #F9F0DA"/>页</button>
-		<button class="button" style="width: 150px;background: #ce5735">共<input id="totalPage" type="text" value="5" readonly="readonly" style="width: 40px;background: #ce5735;color:#F9F0DA;"/>页</button>
-		<button class="nextPage button" onclick="next_click()"style="background:rgb(255, 255, 255)"><img src="static/assets/img/page-icon/page-right.png"/></button>
-		<button class="lastPage button" onclick="last_click()" style="background:rgb(255, 255, 255)"><img src="static/assets/img/page-icon/right-end.png"/></button>
-
-
-	</div>
-
+            {{ pagination.info }}
+            {{ pagination.links }}
 	<script src="static/assets/js/index.js" type="text/javascript" charset="utf-8"></script>
-
         </section><!-- End Counts Section -->
-
-      </div>
     </section><!-- End Our Team Section -->
 {% endblock %}

@@ -38,10 +38,10 @@ words = [
 
 c = (
     WordCloud()
-    .add("", words, word_size_range=[12, 30],        mask_image='static/assets/img/tiger(1).png',
+    .add("", words, word_size_range=[12, 30],        mask_image='../static/assets/img/tiger(1).png',
          textstyle_opts=opts.TextStyleOpts(font_family="circle"))
     .set_global_opts(title_opts=opts.TitleOpts(title="词频统计"))
-    .render("templates/wordcloud_custom_mask_image.html")
+    .render("../templates/wordcloud_custom_mask_image.html")
 )
 
 #
