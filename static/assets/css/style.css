@@ -3,6 +3,18 @@
 # General
 --------------------------------------------------------------*/
 
+
+/*3D 单本详情框*/
+.set {
+        border: #c2e9fb 1px solid;
+        box-shadow: rgb(11, 234, 235) 0px 0px 10px inset; // 发光效果
+        transition: all 0.3s ease-in-out;  //过滤动画 0.2秒
+        padding-top: 10px;
+        border-radius: 8px;
+        padding-bottom: 10px;
+    }
+
+/*come界面*/
 .card {
   padding: 20px 10px;
   border-radius: 10%;
