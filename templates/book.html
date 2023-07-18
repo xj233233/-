@@ -30,7 +30,7 @@
                 <div class="container" >
                     <div class="page-block">
 		<div class="page-1">
-<table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
+        <table class="table table-striped" style="background-color: rgba(228, 124, 146, 0.05)">
 
                     <tr style="background-color: #ffffff;width:100px">
                         <td>书名</td>
@@ -43,10 +43,11 @@
                         <td style="width: 100px">评分</td>
                         <td style="width: 100px">评价人数</td>
                         <td >一句话概述</td>
-                        <td></td>
+                        <td style = "width: 70px">推荐</td>
                     </tr>
                     {% for tushu in book[0:50] %}
                         <tr>
+                             <form action="/rel" method="post">
                             <td>
                                 <a href="{{ tushu[1] }}" target="_blank">
                                     {{tushu[0]}}
@@ -61,7 +62,11 @@
                             <td>{{tushu[9]}}</td>
                             <td>{{tushu[10]}}</td>
                             <td>{{tushu[11]}}</td>
-                            <td>{{tushu[12]}}</td>
+                                <input name="bid" value="{{tushu[1]}}" type="hidden">
+                            <td>
+                                <button type="submit">查看</button>
+                            </td>
+                            </form>
                         </tr>
                     {% endfor %}
                 </table>
@@ -82,10 +87,11 @@
                         <td style="width: 100px">评分</td>
                         <td style="width: 100px">评价人数</td>
                         <td >一句话概述</td>
-                        <td></td>
+                        <td style = "width: 70px">推荐</td>
                     </tr>
                     {% for tushu in book[50:100] %}
                         <tr>
+                             <form action="/rel" method="post">
                             <td>
                                 <a href="{{ tushu[1] }}" target="_blank">
                                     {{tushu[0]}}
@@ -100,7 +106,11 @@
                             <td>{{tushu[9]}}</td>
                             <td>{{tushu[10]}}</td>
                             <td>{{tushu[11]}}</td>
-                            <td>{{tushu[12]}}</td>
+                                <input name="bid" value="{{tushu[1]}}" type="hidden">
+                            <td>
+                                <button type="submit">查看</button>
+                            </td>
+                            </form>
                         </tr>
                     {% endfor %}
                 </table>
@@ -120,10 +130,11 @@
                         <td style="width: 100px">评分</td>
                         <td style="width: 100px">评价人数</td>
                         <td style="width: 270px">一句话概述</td>
-                        <td></td>
+                        <td style = "width: 70px">推荐</td>
                     </tr>
                     {% for tushu in book[100:150] %}
                         <tr>
+                             <form action="/rel" method="post">
                             <td>
                                 <a href="{{ tushu[1] }}" target="_blank">
                                     {{tushu[0]}}
@@ -138,7 +149,11 @@
                             <td>{{tushu[9]}}</td>
                             <td>{{tushu[10]}}</td>
                             <td>{{tushu[11]}}</td>
-                            <td>{{tushu[12]}}</td>
+                                <input name="bid" value="{{tushu[1]}}" type="hidden">
+                            <td>
+                                <button type="submit">查看</button>
+                            </td>
+                            </form>
                         </tr>
                     {% endfor %}
                 </table>
@@ -157,10 +172,11 @@
                         <td style="width: 100px">评分</td>
                         <td style="width: 100px">评价人数</td>
                         <td style="width: 270px">一句话概述</td>
-                        <td></td>
+                        <td style = "width: 70px">推荐</td>
                     </tr>
                     {% for tushu in book[150:200] %}
                         <tr>
+                             <form action="/rel" method="post">
                             <td>
                                 <a href="{{ tushu[1] }}" target="_blank">
                                     {{tushu[0]}}
@@ -175,7 +191,11 @@
                             <td>{{tushu[9]}}</td>
                             <td>{{tushu[10]}}</td>
                             <td>{{tushu[11]}}</td>
-                            <td>{{tushu[12]}}</td>
+                                <input name="bid" value="{{tushu[1]}}" type="hidden">
+                            <td>
+                                <button type="submit">查看</button>
+                            </td>
+                            </form>
                         </tr>
                     {% endfor %}
                 </table>
@@ -194,10 +214,12 @@
                         <td style="width: 100px">评分</td>
                         <td style="width: 100px">评价人数</td>
                         <td style="width: 240px">一句话概述</td>
-                        <td></td>
+                        <td style = "width: 70px">推荐</td>
                     </tr>
                     {% for tushu in book[200:250] %}
+
                         <tr>
+                             <form action="/rel" method="post">
                             <td>
                                 <a href="{{ tushu[1] }}" target="_blank">
                                     {{tushu[0]}}
@@ -212,7 +234,11 @@
                             <td>{{tushu[9]}}</td>
                             <td>{{tushu[10]}}</td>
                             <td>{{tushu[11]}}</td>
-                            <td>{{tushu[12]}}</td>
+                                <input name="bid" value="{{tushu[1]}}" type="hidden">
+                            <td>
+                                <button type="submit">查看</button>
+                            </td>
+                            </form>
                         </tr>
                     {% endfor %}
                 </table>
@@ -234,7 +260,6 @@
 	</div>
 
 	<script src="static/assets/js/index.js" type="text/javascript" charset="utf-8"></script>
-
 
         </section><!-- End Counts Section -->
 
