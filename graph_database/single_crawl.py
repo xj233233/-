@@ -26,19 +26,19 @@ def crawl_doubanbook_single_page(book_id):
     proxies = proxy(proxy_url)
     req_html = requests.get(url, headers=headers)
     req_html.encoding = req_html.apparent_encoding
-    try:
-        if req_html.status_code == 200:
-            print('成功获取源代码')
-    except Exception as e:
-        for i in range(5):
-            req_html = requests.get(url, headers=headers)
-            req_html.encoding = req_html.apparent_encoding
+    for i in range(5):
+        try:
             if req_html.status_code == 200:
                 print('成功获取源代码')
                 break
-            sleep(3)
-        print('状态码:', req_html.status_code, ' 获取源代码失败:' + e)
-
+        except Exception as e:
+            print('状态码:', req_html.status_code, ' 获取源代码失败:' + e)
+            print('再次请求')
+        req_html = requests.get(url, headers=headers)
+        req_html.encoding = req_html.apparent_encoding
+        sleep(3)
+        
+    sleep(3)
     bsobj = BeautifulSoup(req_html.content, features="lxml")
     char_to_remove = ["\n", " ", "\xa0"]
     b_info = dict()
