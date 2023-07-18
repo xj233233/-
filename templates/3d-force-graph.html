@@ -8,7 +8,9 @@
 
 <body>
   <div id="3d-graph"></div>
-
+<div id="test">
+   <span style="color:red">test1</span> test2
+</div>
 
   <script type="importmap">{ "imports": { "three": "https://unpkg.com/three/build/three.module.js" }}</script>
   <script type = "module">
@@ -18,6 +20,7 @@
     console.log(gData)
     let j = 0
     const data = eval('(' + gData + ')');
+
     for( ; j < data.nodes.length; j++){
         data.nodes[j].book_data = JSON.stringify(data.nodes[j].book_data);
         data.nodes[j].rating = JSON.stringify(data.nodes[j].rating)
@@ -25,6 +28,22 @@
         console.log(data.nodes[j].rating)
     }
     console.log(data)
+    function getNodeLabel(node) {
+        console.log(JSON.parse(node.book_data) )
+        let details =
+            "<div class='set' >" +
+            "<p>" +
+            "书名:" + JSON.parse(node.book_data)["name"] +
+            "<br> 作者:" + JSON.parse(node.book_data)["authors"] +
+            "<br> 页数:" + JSON.parse(node.book_data)["pages"] +
+            "<br> 作品集:" + JSON.parse(node.book_data)["collections"] +
+            "<br> ISBN:" + JSON.parse(node.book_data)["ISBN"] +
+            "<br> 出版年份:" + JSON.parse(node.book_data)["pub_year"] +
+            "<br> 评分:" + JSON.parse(node.book_data)["rating"] +
+            "</p>"+
+            "</div>"
+        return details;
+    }
     const Graph = ForceGraph3D()
       (document.getElementById('3d-graph'))
         .graphData(data)
@@ -38,11 +57,12 @@
           sprite.textHeight = 8;
           return sprite;
         })
-        .nodeLabel('book_data')
+        // .nodeLabel('book_data')
+        .nodeLabel(getNodeLabel)
         .linkThreeObjectExtend(true)
         .linkThreeObject(link => {
           // extend link with text sprite
-          const sprite = new SpriteText("读者可能喜欢");
+          const sprite = new SpriteText("");
           sprite.color = 'lightgrey';
           sprite.textHeight = 2.5;
           return sprite;
@@ -78,10 +98,9 @@
             node, // lookAt ({ x, y, z })
             3000  // ms transition duration
           );
-        });
-        /*.onLinkHover (
-
-        )*/
+        })
+        // .onLinkHover (
+        // )
         ;
 
     const bloomPass = new UnrealBloomPass();
