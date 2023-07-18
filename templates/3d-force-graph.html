@@ -8,7 +8,9 @@
 
 <body>
   <div id="3d-graph"></div>
-
+<div id="test">
+   <span style="color:red">test1</span> test2
+</div>
 
   <script type="importmap">{ "imports": { "three": "https://unpkg.com/three/build/three.module.js" }}</script>
   <script type = "module">
@@ -25,6 +27,9 @@
         console.log(data.nodes[j].rating)
     }
     console.log(data)
+    function getNodeLabel(node) {
+        return "<div class='set' >" + node.book_data + "</div>";
+    }
     const Graph = ForceGraph3D()
       (document.getElementById('3d-graph'))
         .graphData(data)
@@ -38,11 +43,13 @@
           sprite.textHeight = 8;
           return sprite;
         })
-        .nodeLabel('book_data')
+        // .nodeLabel('book_data')
+        .nodeLabel(getNodeLabel)
+        // .nodeLabel('<div style="color: #e83e8c">${book_data}</div>>')
         .linkThreeObjectExtend(true)
         .linkThreeObject(link => {
           // extend link with text sprite
-          const sprite = new SpriteText("读者可能喜欢");
+          const sprite = new SpriteText("");
           sprite.color = 'lightgrey';
           sprite.textHeight = 2.5;
           return sprite;
@@ -78,10 +85,20 @@
             node, // lookAt ({ x, y, z })
             3000  // ms transition duration
           );
-        });
-        /*.onLinkHover (
-
-        )*/
+        })
+        .onLinkHover (
+            // link => {
+            //     highlightNodes.clear();
+            //     highlightLinks.clear();
+            //
+            //     if (link) {
+            //         highlightLinks.add(link);
+            //         highlightNodes.add(link.source);
+            //         highlightNodes.add(link.target);
+            //     }
+            //     updateHighlight();
+            // }
+        )
         ;
 
     const bloomPass = new UnrealBloomPass();
