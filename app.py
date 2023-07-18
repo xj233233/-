@@ -1,9 +1,12 @@
+import subprocess
+
 import requests
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import pymysql
 import json
-from graph_database import Bot
-from queue import Queue
+
+from data import data_analysis
+from data import data_clean
 from py2neo import Graph
 
 app = Flask(__name__)
@@ -49,14 +52,21 @@ def query(sql, *args):
 
 @app.route('/')
 def index():
-    # return render_template("index.html")
-    return render_template("come.html")
+    return render_template("index.html")
+    # return render_template("come.html")
 
 
 @app.route('/index')
 def home():
     # return render_template("index.html")
     return index()
+
+
+# 刷新数据库
+@app.route('/refresh', methods=['POST'])
+def refresh():
+    subprocess.call(['python', 'data/data_analysis.py'])
+    return '刷新成功'
 
 
 @app.route('/book')
@@ -195,7 +205,6 @@ def book_connection_query_rand():
     gData, unique_nodes = push_to_gData(gData, {}, cur_data)
 
     return render_template('3d-force-graph.html', gData=json.dumps(gData))
-
 
 
 @app.route('/wordcloud_custom_mask_image')
