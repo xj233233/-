@@ -3,7 +3,11 @@
 # General
 --------------------------------------------------------------*/
 
-
+#refresh{
+        background-color: transparent;
+        padding-top: 15px;
+        outline: none;
+}
 /*3D 单本详情框*/
 .set {
         border: #c2e9fb 1px solid;

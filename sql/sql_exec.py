@@ -1,5 +1,4 @@
 import pymysql
-
 #database:数据库名称
 #sql:sql文件的路径
 def execute_sql(database:str , sql: str):
@@ -53,7 +52,7 @@ def execute_sql(database:str , sql: str):
 
 def list_insert(list):
     # 请修改为自己的数据库连接
-    execute_sql("doubanbook", "../sql/create_doubanbook.sql")
+    execute_sql("doubanbook", "sql/create_doubanbook.sql")
     db = pymysql.connect(
         host="123.249.31.143",
         user="test001",
@@ -96,4 +95,4 @@ def list_insert(list):
 
     conn.close()
 
-    execute_sql("doubanbook", "../sql/insert_doubanbook.sql")
+    execute_sql("doubanbook", "sql/create_doubanbook.sql")
