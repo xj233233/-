@@ -12,7 +12,7 @@
 
   <script type="importmap">{ "imports": { "three": "https://unpkg.com/three/build/three.module.js" }}</script>
   <script type = "module">
-     import { UnrealBloomPass } from '//unpkg.com/three/examples/jsm/postprocessing/UnrealBloomPass.js';
+    import { UnrealBloomPass } from '//unpkg.com/three/examples/jsm/postprocessing/UnrealBloomPass.js';
 
     let gData = '{{ gData| safe }}';
     console.log(gData)
@@ -34,6 +34,7 @@
           const sprite = new SpriteText(JSON.parse(node.book_data)["name"]);
           sprite.material.depthWrite = false; // make sprite background transparent
           sprite.color = node.color;
+          console.log(node.color)
           sprite.textHeight = 8;
           return sprite;
         })
@@ -43,7 +44,7 @@
           // extend link with text sprite
           const sprite = new SpriteText("读者可能喜欢");
           sprite.color = 'lightgrey';
-          sprite.textHeight = 3.0;
+          sprite.textHeight = 2.5;
           return sprite;
         })
         .linkPositionUpdate((sprite, { start, end }) => {
@@ -57,7 +58,8 @@
         .linkLabel('relationship')
         .linkDirectionalArrowLength(3.5) //箭头长度
         .linkDirectionalArrowRelPos(1) //箭头位置偏移 source指向target
-        .linkCurvature(0.25) //曲度
+        .linkDirectionalArrowColor(Node.color)
+//        .linkCurvature(0.25) //曲度
         .onNodeClick(node => {
             const bid = JSON.parse(node.book_data)["bid"]
             window.open("https://book.douban.com/subject/"+bid);
@@ -83,7 +85,7 @@
         ;
 
     const bloomPass = new UnrealBloomPass();
-    bloomPass.strength = 1.25;
+    bloomPass.strength = 0.5;
     bloomPass.radius = 1;
     bloomPass.threshold = 0.1;
     Graph.postProcessingComposer().addPass(bloomPass);

@@ -1,9 +1,13 @@
-from flask import Flask, render_template, request
+import requests
+from flask import Flask, render_template, request, redirect, url_for
 import pymysql
 import json
-from py2neo import Graph,Node,Relationship
+from graph_database import Bot
+from queue import Queue
+from py2neo import Graph
 
 app = Flask(__name__)
+
 
 def get_conn():
     """
@@ -17,29 +21,31 @@ def get_conn():
         db='doubanbook',
         charset='utf8'
     )
-    #创建游标
+    # 创建游标
     cursor = conn.cursor()
-    return conn,cursor
+    return conn, cursor
 
-def close_conn(conn,cursor):
+
+def close_conn(conn, cursor):
     if cursor:
         cursor.close()
     if conn:
         conn.close()
 
 
-def query(sql,*args):
+def query(sql, *args):
     """
     通用查询
     :param sql
     :param args sql里的占位符对应的值
     :return 返回查询的结果， ((),()...)
     """
-    conn,cursor = get_conn()
-    cursor.execute(sql,args)
+    conn, cursor = get_conn()
+    cursor.execute(sql, args)
     res = cursor.fetchall()
-    close_conn(conn,cursor)
+    close_conn(conn, cursor)
     return res
+
 
 @app.route('/')
 def index():
@@ -59,22 +65,21 @@ def tushu():
     result = query(sql)
     for item in result:
         datalist.append(item)
-    print(datalist)
     return render_template("book.html", book=datalist)
+
 
 # 检索
 @app.route('/search', methods=['POST'])
 def search():
     find_book = []
     keywords = request.form.get('keywords')
-    print(keywords)
     # sql = "select * from books where title like '%" + keywords + "%' "
     sql = 'select * from books where title like "%%{0}%%"'.format(keywords)
     result = query(sql)
     for item in result:
         find_book.append(item)
-    print(find_book)
     return render_template('book.html', book=find_book)
+
 
 @app.route('/score')
 def score():
@@ -101,9 +106,11 @@ def country():
 
     return render_template("country.html", country=country, num=num)
 
+
 @app.route('/country_map')
 def country_map():
     return render_template("country_map.html")
+
 
 @app.route('/peopletop10')
 def peopletop10():
@@ -149,8 +156,8 @@ def publisher():
 
     return render_template("publisher.html", year=year, num=num)
 
-def push_to_gData(gData, unique_nodes, cur):
 
+def push_to_gData(gData, unique_nodes, cur):
     links = gData["links"]
     nodes = gData["nodes"]
 
@@ -170,15 +177,25 @@ def push_to_gData(gData, unique_nodes, cur):
     gData = {"nodes": nodes, "links": links}
     return gData, unique_nodes
 
-@app.route('/rel')
-def book_connection_query_rand():
 
+@app.route('/rel', methods=['POST', 'GET'])
+def book_connection_query_rand():
     graph = Graph("neo4j://localhost:7687", auth=("neo4j", "12345678"))
-    cur = graph.run("MATCH (m:Book)  MATCH (m)<-[:读者可能喜欢]-(p) RETURN * ")
     gData = {"nodes": [], "links": []}
+    result = request.form.get("bid")
+    bid = ''.join(filter(str.isdigit, str(result)))
+    print(bid)
+    if request.method == 'POST':
+        cur = graph.run("MATCH (m:{0}) <-[:读者可能喜欢]-(p) RETURN * ".format("favor" + bid))
+    else:
+        cur = graph.run("MATCH (m) <-[:读者可能喜欢]-(p) RETURN * limit 200")
+
     cur_data = [item for item in cur]
     gData, unique_nodes = push_to_gData(gData, {}, cur_data)
-    return render_template('3d-force-graph.html', gData = json.dumps(gData))
+
+    return render_template('3d-force-graph.html', gData=json.dumps(gData))
+
+
 
 @app.route('/wordcloud_custom_mask_image')
 def word():
@@ -196,4 +213,3 @@ if __name__ == '__main__':
     server = pywsgi.WSGIServer(('0.0.0.0', 5000), app)
 
     server.serve_forever()
-
