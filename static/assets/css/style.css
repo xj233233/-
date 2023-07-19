@@ -3,6 +3,91 @@
 # General
 --------------------------------------------------------------*/
 
+/*分页*/
+
+.pagination{
+  padding: 5px;
+  text-decoration: none;
+  color: #333;
+  justify-content: center;
+}
+
+
+
+
+/*关系网按钮*/
+
+.netButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e8e8e8;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  text-transform: uppercase;
+  /*border: 2px solid #f1ebec;*/
+  border-radius: 50%;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  /*box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.15),*/
+  /*  2px 2px 2px rgba(0, 0, 0, 0.1),*/
+  /*  -3px -3px 2px rgba(255, 255, 255, 0.05),*/
+  /*  -2px -2px 1px rgba(255, 255, 255, 0.05);*/
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.netButton .span {
+  position: relative;
+  z-index: 2;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.netButton::before {
+  content: "";
+  position: absolute;
+  background-color: #ffffff;
+  width: 150%;
+  height: 150%;
+  left: 0%;
+  bottom: 0%;
+  transform: translate(-100%, 100%) rotate(45deg);
+  border-radius: 15px;
+}
+
+.netButton:hover::before {
+  animation: shakeBack 0.6s forwards 0.6s;
+}
+
+.netButton:hover .span {
+  scale: 1.5;
+}
+
+.netButton:hover {
+  box-shadow: none;
+}
+
+.netButton:active {
+  scale: 0.95;
+}
+
+@keyframes shakeBack {
+  0% {
+    transform: translate(-100%, 100%) rotate(45deg);
+  }
+
+  50% {
+    transform: translate(15%, -15%) rotate(45deg);
+  }
+
+  100% {
+    transform: translate(-10%, 10%) rotate(45deg);
+  }
+}
+
+
+/*刷新数据库按钮*/
 #refresh{
         background-color: transparent;
         padding-top: 15px;

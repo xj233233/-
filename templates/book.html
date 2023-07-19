@@ -8,7 +8,7 @@
             <h2>豆瓣图书Top250图书</h2>
         </div>
         </div>
-        <div><a href=/book><button><img src="../static/assets/img/page-icon/page-left.png" height="40px" title="返回"></button></a></div>
+        <div><a href=/book><button style="background-color: white"><img src="../static/assets/img/return.png" height="40px" title="返回"></button></a></div>
         <div class="search bar">
             <form class="form" action="/search" method="post">
                 <input type="text" placeholder="请输入关键字" name ="keywords">
@@ -52,7 +52,10 @@
                             <td>{{tushu[11]}}</td>
                                 <input name="bid" value="{{tushu[1]}}" type="hidden">
                             <td>
-                                <button type="submit">查看</button>
+<!--                                <button class="submit_b" type="submit"><img src="../static/assets/img/">查看</button>-->
+                                <button class="netButton" type="submit">
+                                  <span class="span">🔍</span>
+                                </button>
                             </td>
                             </form>
                         </tr>
@@ -60,7 +63,7 @@
                 </table>
             {{ pagination.info }}
             {{ pagination.links }}
-	<script src="static/assets/js/index.js" type="text/javascript" charset="utf-8"></script>
+
         </section><!-- End Counts Section -->
     </section><!-- End Our Team Section -->
 {% endblock %}
