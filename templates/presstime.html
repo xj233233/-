@@ -49,7 +49,6 @@ option = {
         name:'时间',
         type: 'category',
         data: {{ year|tojson }}
-        <!--['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun','999']-->
     },
     yAxis: {
         name: '数量',
@@ -57,7 +56,6 @@ option = {
     },
     series: [{
         data: {{ num }},
-            <!--[120, 20, 150, 80, 70, 110, 130,200],-->
         barWidth:'60%',
         type:'bar'
     }]

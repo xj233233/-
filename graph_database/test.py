@@ -41,4 +41,3 @@ for i in range(len(bids)):
 
 cur.close()
 
-#robot1.enqueue_boundary_books()

@@ -34,20 +34,11 @@ words = [
     ('心灵史', 1), ('思无邪', 1), ('野草', 1)]
 
 
-# font_path='msyh.ttc'
 
 c = (
     WordCloud()
-    .add("", words, word_size_range=[12, 30],        mask_image='../static/assets/img/tiger(1).png',
+    .add("", words, word_size_range=[12, 30],        mask_image='../static/assets/img/tiger.png',
          textstyle_opts=opts.TextStyleOpts(font_family="circle"))
     .set_global_opts(title_opts=opts.TitleOpts(title="词频统计"))
     .render("../templates/wordcloud_custom_mask_image.html")
 )
-
-#
-# c = (
-#     WordCloud()
-#     .add("", words, word_size_range=[6, 20], mask_image='C:\\Users\\cute yuan bao\\Desktop\\tiger(2).png', textstyle_opts=opts.TextStyleOpts(font_family="circle"))
-#     .set_global_opts(title_opts=opts.TitleOpts(title="WordCloud-自定义图片"))
-#     .render("wordcloud_custom_mask_image.html")
-# )

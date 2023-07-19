@@ -1,6 +1,3 @@
-import re
-
-
 def clean(book_list):
     BOOKS = book_list
     c1 = '群众出版社'

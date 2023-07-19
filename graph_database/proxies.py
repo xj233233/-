@@ -16,8 +16,4 @@ def proxy(url: str):
         "https": "socks5h://%(user)s:%(pwd)s@%(proxy)s/" % {"user": username, "pwd": password, "proxy": proxy_ip}
     }
     return proxies
-# 白名单方式（需提前设置白名单）
-# proxies = {
-#     "http": "socks5h://%(proxy)s/" % {"proxy": proxy_ip},
-#     "https": "socks5h://%(proxy)s/" % {"proxy": proxy_ip}
-# }
+

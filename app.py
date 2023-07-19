@@ -53,15 +53,12 @@ def query(sql, *args):
 
 @app.route('/')
 def home():
-    # return render_template("index.html")
     return come()
 
 
 @app.route('/come')
 def come():
     return render_template("come.html")
-    # return index()
-
 
 @app.route('/index')
 def index():

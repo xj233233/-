@@ -31,37 +31,6 @@ var myChart = echarts.init(dom);
 var app = {};
 option = null;
 option = {
-
-    color:['#3398DB'],
-    tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'shadow'
-        }
-    },
-    grid: {
-        left: '3%',
-        right:'4%',
-        bottom:'3%',
-        containLabel:true
-    },
-    xAxis: {
-        type: 'category',
-        data: {{ score|tojson }}
-        <!--['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun','999']-->
-    },
-    yAxis: {
-        type: 'value'
-    },
-    series: [{
-        data: {{ num }},
-            <!--[120, 20, 150, 80, 70, 110, 130,200],-->
-        barWidth:'60%',
-        type:'bar'
-    }]
-};
-
-option1 = {
   tooltip: {
     trigger: 'item'
   },
@@ -101,7 +70,7 @@ option1 = {
 };
 
 if (option && typeof option === "object") {
-    myChart.setOption(option1, true);
+    myChart.setOption(option, true);
 }
        </script>
 

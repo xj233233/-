@@ -38,19 +38,6 @@ def query(sql,*args):
     close_conn(conn,cursor)
     return res
 
-
-# jieba 分词加载自定义词库
-# jieba.load_userdict("SogouLabDic.txt")
-# jieba.load_userdict("dict_baidu_utf8.txt")
-# jieba.load_userdict("dict_pangu.txt")
-# jieba.load_userdict("dict_sougou_utf8.txt")
-# jieba.load_userdict("dict_tencent_utf8.txt")
-# jieba.load_userdict("my_dict.txt")
-
-# 载入停止词
-# stopwords = {}.fromkeys(
-#      [line.rstrip() for line in open('Stopword.txt')])
-
 # 从数据库中分别读取 ID1-ID9 的评论信息
 sql = "select comment from books"
 result = query(sql)
