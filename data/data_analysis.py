@@ -1,7 +1,6 @@
 # 1. 导入库包
 import re
 from time import sleep
-
 import requests
 from lxml import etree
 from sql import sql_exec
@@ -17,7 +16,7 @@ def get_html(url):
     # 异常处理
     try:
         html = requests.get(url, headers=headers)
-        # 声明编码方式
+        # 声明编码方式为从内容中分析出的响应内容编码
         html.encoding = html.apparent_encoding
         # 判断
         if html.status_code == 200:

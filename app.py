@@ -109,7 +109,7 @@ def search():
      # 获取当前页码
     page = request.args.get(get_page_parameter(), type=int, default=1)
     # 每页显示的数据量
-    per_page = 1
+    per_page = len(books)
     # 分页处理
     pagination = Pagination(page=page, per_page=per_page, total=len(books), css_framework='bootstrap4')
     # 获取当前页的数据
