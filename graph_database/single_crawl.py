@@ -1,8 +1,10 @@
+import re
+from time import sleep
+
 import requests
 from bs4 import BeautifulSoup
-import re
+
 from proxies import proxy
-from time import sleep
 
 
 class Task2:
