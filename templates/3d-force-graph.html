@@ -7,10 +7,10 @@
  {% block content %}
 
 <body>
-  <div id="3d-graph"></div>
-<div id="test">
-   <span style="color:red">test1</span> test2
-</div>
+    <div>
+
+    </div>
+  <div id="3d-graph"; style="background-color: #ffffff; "></div>
 
   <script type="importmap">{ "imports": { "three": "https://unpkg.com/three/build/three.module.js" }}</script>
   <script type = "module">
@@ -98,10 +98,7 @@
             node, // lookAt ({ x, y, z })
             3000  // ms transition duration
           );
-        })
-        // .onLinkHover (
-        // )
-        ;
+        });
 
     const bloomPass = new UnrealBloomPass();
     bloomPass.strength = 0.5;
@@ -109,7 +106,10 @@
     bloomPass.threshold = 0.1;
     Graph.postProcessingComposer().addPass(bloomPass);
     // Spread nodes a little wider
-    Graph.d3Force('charge').strength(-120);
+    Graph.d3Force('charge').strength(-70)
+    .d3Force('link', d3.forceLink().id(d => d.id).distance(50))
+    .d3Force('center', d3.forceCenter())
+    .d3Force('collision', d3.forceCollide().radius(10));;
 
   </script>
 </body>
