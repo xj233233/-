@@ -257,7 +257,7 @@
   font-size: 27px;
 }
 .content::before {
-  content: '🌟';
+  content: '✨';
   font-size: 72px;
   position: absolute;
   filter: blur(3px);
@@ -1204,7 +1204,7 @@ section {
   justify-content: center;
   align-items: center;
   /*padding-bottom: 10px;*/
-    background-image: url("图片3.png");
+    width:100%;height:100vh;background:url(图片3.png) no-repeat scroll 50% 0 transparent;background-size:100% 100%;overflow: hidden;
     background-size: 100% 100%;
     /*background-color: rgba(207, 86, 50,0.05%);*/
     background-repeat: no-repeat;
