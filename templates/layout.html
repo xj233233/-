@@ -96,7 +96,6 @@
             <img src="../static/assets/img/10.png" style="width: 30px; height: 30px">
             <li class="focus"><p>团队</p></li>
         </a>
-                <button id="refresh"><img src="../static/assets/img/refresh.png" style="width: 30px"></button>
             </div>
         </ul>
       </nav><!-- .nav-menu -->
@@ -131,29 +130,6 @@
 
   <!-- Template Main JS File -->
   <script src="static/assets/js/main.js"></script>
-    <script>
-      // 获取按钮元素
-      var button = document.getElementById("refresh");
-
-      // 添加点击事件监听器
-      button.addEventListener("click", function() {
-        // 发起请求执行 app.py 中的 refresh 方法
-        fetch('/refresh', {
-          method: 'POST'
-        })
-        .then(function(response) {
-          // 处理响应
-          if (response.ok) {
-            alert('刷新成功');
-          } else {
-            throw new Error('刷新失败');
-          }
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-      });
-    </script>
 </body>
 
 </html>
