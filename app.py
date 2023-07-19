@@ -53,25 +53,20 @@ def query(sql, *args):
 
 @app.route('/')
 def home():
-    #return render_template("index.html")
+    # return render_template("index.html")
     return come()
+
 
 @app.route('/come')
 def come():
     return render_template("come.html")
-    #return index()
+    # return index()
+
 
 @app.route('/index')
 def index():
     return render_template("index.html")
-    #return index()
-
-
-# 刷新数据库
-@app.route('/refresh', methods=['POST'])
-def refresh():
-    subprocess.call(['python', 'data/data_analysis.py'])
-    return '刷新成功'
+    # return index()
 
 
 @app.route('/book')
@@ -105,18 +100,18 @@ def search():
     result = query(sql)
     for item in result:
         find_book.append(item)
-    books=find_book
-     # 获取当前页码
+    books = find_book
+    # 获取当前页码
     page = request.args.get(get_page_parameter(), type=int, default=1)
     # 每页显示的数据量
-    per_page = 1
+    per_page = len(books)
     # 分页处理
     pagination = Pagination(page=page, per_page=per_page, total=len(books), css_framework='bootstrap4')
     # 获取当前页的数据
     start = (page - 1) * per_page
     end = start + per_page
     books = books[start:end]
-    return render_template('book.html', book=find_book,pagination=pagination)
+    return render_template('book.html', book=find_book, pagination=pagination)
 
 
 @app.route('/score')
@@ -216,21 +211,19 @@ def push_to_gData(gData, unique_nodes, cur):
     return gData, unique_nodes
 
 
-@app.route('/rel', methods=['POST', 'GET'])
+@app.route('/rel')
 def book_connection_query_rand():
+    result = request.args.get("bid")
+    bid = ''.join(filter(str.isdigit, str(result)))
     graph = Graph("neo4j://localhost:7687", auth=("neo4j", "12345678"))
     gData = {"nodes": [], "links": []}
-    result = request.form.get("bid")
-    bid = ''.join(filter(str.isdigit, str(result)))
-    print(bid)
-    if request.method == 'POST':
+    if len(bid) != 0:
         cur = graph.run("MATCH (m:{0}) <-[:读者可能喜欢]-(p) RETURN * ".format("favor" + bid))
     else:
-        cur = graph.run("MATCH (m) <-[:读者可能喜欢]-(p) RETURN * limit 200")
-
+        cur = graph.run("MATCH (m) where rand() < 0.8 match (m)<-[:读者可能喜欢]-(p) RETURN * limit 500")
     cur_data = [item for item in cur]
     gData, unique_nodes = push_to_gData(gData, {}, cur_data)
-
+    print(cur_data)
     return render_template('3d-force-graph.html', gData=json.dumps(gData))
 
 

@@ -52,7 +52,7 @@ def execute_sql(database:str , sql: str):
 
 def list_insert(list):
     # 请修改为自己的数据库连接
-    execute_sql("doubanbook", "sql/create_doubanbook.sql")
+    execute_sql("doubanbook", "../sql/create_doubanbook.sql")
     db = pymysql.connect(
         host="123.249.31.143",
         user="test001",
@@ -89,10 +89,10 @@ def list_insert(list):
             # 这里的第二个参数传入的要是一个元组
             if conn.execute(sql, tuple(book_elemnets.values())):
                 db.commit()
-        except Exception as  e:
+        except Exception as e:
             print('Insert Failed: %s ' % e)
             db.rollback()
 
     conn.close()
 
-    execute_sql("doubanbook", "sql/create_doubanbook.sql")
+    execute_sql("doubanbook", "../sql/insert_doubanbook.sql")
