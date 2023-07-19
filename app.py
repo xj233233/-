@@ -52,15 +52,19 @@ def query(sql, *args):
 
 
 @app.route('/')
-def index():
-    return render_template("index.html")
-    # return render_template("come.html")
+def home():
+    #return render_template("index.html")
+    return come()
 
+@app.route('/come')
+def come():
+    return render_template("come.html")
+    #return index()
 
 @app.route('/index')
-def home():
-    # return render_template("index.html")
-    return index()
+def index():
+    return render_template("index.html")
+    #return index()
 
 
 # 刷新数据库
