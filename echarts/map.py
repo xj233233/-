@@ -1,10 +1,6 @@
-import os
-
-from flask import render_template
 from pyecharts import options as opts
 from pyecharts.charts import Map
 import pymysql
-from pyecharts.faker import Faker
 def get_conn():
     """
     :return 连接对象，游标对象
@@ -71,6 +67,4 @@ c = (
     .render("../templates/country.html")
 )
 
-# 打开html
-# os.system("templates/render.html")
 

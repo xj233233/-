@@ -48,10 +48,7 @@ for item in result:
     a = jieba.lcut(result_middle[0])
     seg.extend(a)
 result = []
-# print(seg)
 for i in seg:
-            # if i not in stopwords:
-    # print(i)
     result.append(i)
         # 将分好词的评论写入文件data_full.dat
     with open("data_full.dat", "a+", encoding="utf-8") as fo:

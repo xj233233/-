@@ -1,12 +1,6 @@
-import subprocess
-
-import requests
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 import pymysql
 import json
-
-from data import data_analysis
-from data import data_clean
 from py2neo import Graph
 from flask_paginate import get_page_parameter, Pagination
 
@@ -63,7 +57,6 @@ def come():
 @app.route('/index')
 def index():
     return render_template("index.html")
-    # return index()
 
 
 @app.route('/book')

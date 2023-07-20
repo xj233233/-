@@ -1,6 +1,5 @@
 import jieba
 import zhon.hanzi
-from nltk.corpus import stopwords
 
 punc = zhon.hanzi.punctuation  # 要去除的中文标点符号
 # 读入文件

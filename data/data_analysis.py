@@ -3,7 +3,6 @@ import re
 from time import sleep
 import requests
 from lxml import etree
-
 from sql import sql_exec
 
 pls = []
@@ -188,4 +187,3 @@ if __name__ == '__main__':
 
     sql_exec.list_insert(clean(BOOKS))
 
-#    print("图书信息写入本地成功")
