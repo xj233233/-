@@ -114,7 +114,7 @@
 }
 
 .card-inner {
-  width: 390px;
+  width: 630px;
   height: inherit;
   background: rgba(255,255,255,.05);
   box-shadow: 0 0 10px rgba(0,0,0,0.25);
@@ -142,7 +142,7 @@
 
 .circle:nth-child(2) {
   bottom: -25px;
-  right: -243px;
+  right: -480px;
   animation-name: move-down1;
 }
 
