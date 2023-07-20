@@ -1,21 +1,24 @@
 {% extends "layout.html" %}
 {% block title %}豆瓣图书Top250数据分析{% endblock %}
- {% block content %}
-    <section id="team" class="team">
-      <div class="container">
+{% block content %}
+<section class="team" id="team">
+    <div class="container">
 
         <div class="section-title">
-          <h2>豆瓣图书Top250国家分布图</h2>
+            <h2>豆瓣图书Top250国家分布图</h2>
         </div>
         <div class="pp">
-            <a href="/country"class="fontShow"> <img src="../static/assets/img/条形.png" width="25" title="条形图"></a>
-            <a href="/country_map" class="fontShow">    <img src="../static/assets/img/MAP.png" width="25" title="地图"></a>
+            <a class="fontShow" href="/country"> <img src="../static/assets/img/条形.png" title="条形图" width="25"></a>
+            <a class="fontShow" href="/country_map"> <img src="../static/assets/img/MAP.png" title="地图"
+                                                          width="25"></a>
         </div>
         <!-- ======= Counts Section ======= -->
 
-      </div>
-    </section><!-- End Our Team Section -->
-    <div id="6b08a454b0544caf824f2def8badd7df" class="chart-container" style="width:auto; height:500px; margin:auto;background: #ffffff"></div>    <script type="text/javascript">
+    </div>
+</section><!-- End Our Team Section -->
+<div class="chart-container" id="6b08a454b0544caf824f2def8badd7df"
+     style="width:auto; height:500px; margin:auto;background: #ffffff"></div>
+<script type="text/javascript">
         var chart_6b08a454b0544caf824f2def8badd7df = echarts.init(
             document.getElementById('6b08a454b0544caf824f2def8badd7df'), 'white', {renderer: 'canvas'});
         var option_6b08a454b0544caf824f2def8badd7df = {
@@ -259,5 +262,6 @@
     }
 };
         chart_6b08a454b0544caf824f2def8badd7df.setOption(option_6b08a454b0544caf824f2def8badd7df);
-    </script>
-    {% endblock %}
+
+</script>
+{% endblock %}

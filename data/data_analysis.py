@@ -3,11 +3,14 @@ import re
 from time import sleep
 import requests
 from lxml import etree
+
 from sql import sql_exec
 
 pls = []
 BOOKS = []
 IMGURLS = []
+
+
 # 2. 获取网页源代码
 def get_html(url):
     headers = {
@@ -27,9 +30,9 @@ def get_html(url):
     # 返回html
     return html.text
 
+
 # 3. 解析网页源代码
 def parse_html(html):
-    import time
     html = etree.HTML(html)
     # 每个图书信息分别保存在 class="indent" 的div下的 table标签内
     tables = html.xpath("//div[@class='indent']//table")
@@ -52,9 +55,9 @@ def parse_html(html):
 
         if '[' in pl:
             country = pl.split('[')[1].split(']')[0]
-        elif'【'in pl:
+        elif '【' in pl:
             country = pl.split('【')[1].split('】')[0]
-        elif'（'in pl:
+        elif '（' in pl:
             country = pl.split('（')[1].split('）')[0]
         else:
             country = '中'  # 没有国家的默认为“中国”
@@ -73,11 +76,11 @@ def parse_html(html):
 
         elif '[' not in pl:
             if len(pl.split('/')) == 4:
-              author = pl.split('/')[-4]
+                author = pl.split('/')[-4]
             elif len(pl.split('/')) == 5:
                 author = pl.split('/')[-5]
             elif len(pl.split('/')) == 6:
-              author = pl.split('/')[-6]
+                author = pl.split('/')[-6]
 
         else:
             author = '无'
@@ -87,30 +90,30 @@ def parse_html(html):
             translator = ' '
         elif '[' in pl:
             if len(pl.split('/')) == 4:
-               translator = pl.split('/')[-3]
+                translator = pl.split('/')[-3]
             elif len(pl.split('/')) == 5:
-               translator = pl.split('/')[-4]
+                translator = pl.split('/')[-4]
             elif len(pl.split('/')) == 6:
-               translator = pl.split('/')[-5]
+                translator = pl.split('/')[-5]
 
         else:
             translator = ' '
 
         # 截取出版社
         if len(pl.split('/')) == 2:
-            publisher=pl.split('/')[0]
-        elif  len(pl.split('/'))== 3:
+            publisher = pl.split('/')[0]
+        elif len(pl.split('/')) == 3:
             publisher = pl.split('/')[0]
 
         elif '[' in pl:
-            if len(pl.split('/'))== 4:
+            if len(pl.split('/')) == 4:
                 publisher = pl.split('/')[1]
             elif len(pl.split('/')) == 5:
-               publisher = pl.split('/')[2]
+                publisher = pl.split('/')[2]
             elif len(pl.split('/')) == 6:
-               publisher = pl.split('/')[-3]
+                publisher = pl.split('/')[-3]
             elif len(pl.split('/')) == 7:
-               publisher = pl.split('/')[-4]
+                publisher = pl.split('/')[-4]
 
         elif '[' not in pl:
             publisher = pl.split('/')[-3]
@@ -178,12 +181,11 @@ if __name__ == '__main__':
 
         BOOKS.extend(books)
         IMGURLS.extend(imgUrls)
-    #for p in BOOKS:
+    # for p in BOOKS:
     #   print(p)
 
     from data_clean import clean
+
     sql_exec.list_insert(clean(BOOKS))
-
-
 
 #    print("图书信息写入本地成功")

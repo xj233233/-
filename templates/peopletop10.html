@@ -2,30 +2,30 @@
 
 {% block title %}豆瓣图书Top250数据分析{% endblock %}
 
- {% block content %}
-  <!-- ======= Our Team Section ======= -->
-    <section id="team" class="team">
-      <div class="container">
+{% block content %}
+<!-- ======= Our Team Section ======= -->
+<section class="team" id="team">
+    <div class="container">
 
         <div class="section-title">
-          <h2>评价人数top10的图书名称</h2>
+            <h2>评价人数top10的图书名称</h2>
         </div>
 
         <!-- ======= Counts Section ======= -->
-    <section class="counts section-bg">
-      <div class="container">
+        <section class="counts section-bg">
+            <div class="container">
 
-            <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
-            <div id="main" style="width: 100%;height:500px"></div>
+                <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+                <div id="main" style="width: 100%;height:500px"></div>
 
 
-      </div>
-    </section><!-- End Counts Section -->
+            </div>
+        </section><!-- End Counts Section -->
 
-      </div>
-    </section><!-- End Our Team Section -->
+    </div>
+</section><!-- End Our Team Section -->
 
- <script type="text/javascript">
+<script type="text/javascript">
 
 	       var chartDom = document.getElementById('main');
 var myChart = echarts.init(chartDom);
@@ -84,8 +84,8 @@ option && myChart.setOption(option);
 
 
 
-    </script>
 
+</script>
 
 
 {% endblock %}
