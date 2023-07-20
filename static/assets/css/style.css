@@ -216,7 +216,7 @@
 .card {
   padding: 7px 10px;
   border-radius: 10%;
-  height: 720px;
+  height: 540px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -239,7 +239,7 @@
   font-weight: bold;
   text-align: center;
   color: #e83e8c;
-  font-size: 27px;
+  font-size: 18px;
 }
 
 .heading span {
@@ -254,7 +254,7 @@
   flex-direction: column;
   padding: 10px;
   position: relative;
-  font-size: 27px;
+  font-size: 18px;
 }
 .content::before {
   content: '✨';
@@ -423,7 +423,7 @@
   position: relative;
   animation: 0.9s linear 0s normal none infinite running button;
   transition: all .5s ease-out;
-  font-size: 27px;
+  font-size: 18px;
 }
 
 button:hover {
@@ -1216,7 +1216,7 @@ section {
     top: 0;
     left: 0;
 
-  filter: blur(0.01px);
+  filter: blur(0px);
 }
 
 .section-title1 {
